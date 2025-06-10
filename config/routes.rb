@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get "home/index"
-  get "home/show"
+  get 'about', to: 'about#index', as: :about
+  get 'contact', to: 'contact#index', as: :contact
+  get 'services', to: 'services#index', as: :services
+  get 'projects', to: 'projects#index', as: :projects
+  get 'blog', to: 'blog#index', as: :blog
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
