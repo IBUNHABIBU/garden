@@ -1,0 +1,27 @@
+@use './variable' as *;
+
+/// Get color from map
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+/// Get spacing value
+@function spacing($key) {
+  @return map-get($spacing, $key);
+}
+
+/// Get z-index value
+@function z($key) {
+  @return map-get($z-layers, $key);
+}
+
+/// Responsive breakpoint manager
+@mixin breakpoint($name, $direction: min) {
+  @if map-has-key($breakpoints, $name) {
+    @media (#{$direction}-width: map-get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$name}' not found in $breakpoints";
+  }
+}
