@@ -10,7 +10,4 @@ module NavigationHelper
         ]
     end 
 
-    def active_class(path)
-        current_page?(path) ? 'navbar__item--active': ''
-    end
 end
