@@ -66,3 +66,7 @@ group :test do
 end
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem "tailwindcss-ruby", "~> 4.1"
+
+gem "tailwindcss-rails", "~> 4.2"
