@@ -26,7 +26,16 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-      }
+      },
+      safelist: [
+        'translate-x-full',
+        'translate-x-0',
+        'rotate-45',
+        '-rotate-45',
+        'translate-y-1.5',
+        '-translate-y-1.5',
+        'opacity-0'
+      ]
     }
   }
 }
