@@ -1,7 +1,6 @@
 <nav 
   class="bg-white/80 dark:bg-dark-600/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 fixed w-full z-50"
   data-controller="navbar"
-  data-navbar-expanded-value="false"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
@@ -19,30 +18,27 @@
           <%= link_to link[:name], link[:path], 
               class: "text-dark-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 px-1 text-sm font-medium transition-colors #{current_page?(link[:path]) ? 'text-primary-600 dark:text-primary-400 font-semibold' : ''}" %>
         <% end %>
-        <button class="ml-4 p-1 rounded-full text-dark-500 dark:text-gray-300 hover:text-primary-500 focus:outline-none">
-          <span class="sr-only">Toggle dark mode</span>
-          <!-- Dark mode toggle icon would go here -->
-        </button>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Mobile menu button - UPDATED -->
       <button 
-        class="md:hidden p-1 rounded-md text-dark-500 dark:text-gray-300 hover:text-primary-500 focus:outline-none"
+        class="md:hidden flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
         data-action="navbar#toggle"
+        data-navbar-target="toggleButton"
       >
         <span class="sr-only">Open menu</span>
         <div class="w-6 flex flex-col gap-1.5">
-          <span class="h-[2px] w-6 bg-dark-500 dark:bg-gray-300 transition-all" data-navbar-target="bar1"></span>
-          <span class="h-[2px] w-6 bg-dark-500 dark:bg-gray-300 transition-all" data-navbar-target="bar2"></span>
-          <span class="h-[2px] w-6 bg-dark-500 dark:bg-gray-300 transition-all" data-navbar-target="bar3"></span>
+          <span class="h-0.5 w-6 bg-current transition-all transform" data-navbar-target="bar1"></span>
+          <span class="h-0.5 w-6 bg-current transition-all opacity-100" data-navbar-target="bar2"></span>
+          <span class="h-0.5 w-6 bg-current transition-all transform" data-navbar-target="bar3"></span>
         </div>
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile menu - UPDATED -->
   <div 
-    class="md:hidden fixed inset-0 bg-white/95 dark:bg-dark-600/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform translate-x-full"
+    class="md:hidden fixed inset-0 bg-white/95 dark:bg-dark-600/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out translate-x-full"
     data-navbar-target="mobileMenu"
   >
     <div class="flex flex-col items-center space-y-8">
@@ -51,8 +47,5 @@
             class: "text-2xl font-medium #{current_page?(link[:path]) ? 'text-primary-600 dark:text-primary-400' : 'text-dark-600 dark:text-gray-300 hover:text-primary-500'}" %>
       <% end %>
     </div>
-    <button class="mt-12 p-2 rounded-full text-dark-500 dark:text-gray-300 hover:text-primary-500">
-      <!-- Dark mode toggle for mobile -->
-    </button>
   </div>
 </nav>
