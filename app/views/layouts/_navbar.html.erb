@@ -4,7 +4,7 @@
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
+      <!-- Logo (unchanged) -->
       <%= link_to root_path, class: "flex items-center" do %>
         <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary-500 to-secondary-500 flex items-center justify-center">
           <span class="text-white font-bold text-xs">LOGO</span>
@@ -12,7 +12,7 @@
         <span class="ml-3 text-dark-600 dark:text-light font-semibold text-lg">Company</span>
       <% end %>
 
-      <!-- Desktop Menu -->
+      <!-- Desktop Menu (unchanged) -->
       <div class="hidden md:flex items-center space-x-8">
         <% nav_links.each do |link| %>
           <%= link_to link[:name], link[:path], 
@@ -20,28 +20,28 @@
         <% end %>
       </div>
 
-      <!-- Mobile menu button - UPDATED -->
+      <!-- Mobile menu button - FIXED -->
       <button 
-        class="md:hidden flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-        data-action="navbar#toggle"
+        class="md:hidden flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none z-50"
+        data-action="click->navbar#toggle"
         data-navbar-target="toggleButton"
       >
         <span class="sr-only">Open menu</span>
         <div class="w-6 flex flex-col gap-1.5">
-          <span class="h-0.5 w-6 bg-current transition-all transform" data-navbar-target="bar1"></span>
-          <span class="h-0.5 w-6 bg-current transition-all opacity-100" data-navbar-target="bar2"></span>
-          <span class="h-0.5 w-6 bg-current transition-all transform" data-navbar-target="bar3"></span>
+          <span class="h-0.5 w-6 bg-current transition-all duration-300" data-navbar-target="bar1"></span>
+          <span class="h-0.5 w-6 bg-current transition-all duration-300" data-navbar-target="bar2"></span>
+          <span class="h-0.5 w-6 bg-current transition-all duration-300" data-navbar-target="bar3"></span>
         </div>
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu - UPDATED -->
+  <!-- Mobile menu - FIXED -->
   <div 
-    class="md:hidden fixed inset-0 bg-white/95 dark:bg-dark-600/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out translate-x-full"
+    class="md:hidden fixed inset-0 bg-white/95 dark:bg-dark-600/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out transform translate-x-full"
     data-navbar-target="mobileMenu"
   >
-    <div class="flex flex-col items-center space-y-8">
+    <div class="flex flex-col items-center space-y-8 border-4">
       <% nav_links.each do |link| %>
         <%= link_to link[:name], link[:path], 
             class: "text-2xl font-medium #{current_page?(link[:path]) ? 'text-primary-600 dark:text-primary-400' : 'text-dark-600 dark:text-gray-300 hover:text-primary-500'}" %>
