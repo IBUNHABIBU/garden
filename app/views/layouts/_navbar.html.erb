@@ -16,10 +16,11 @@
         </button>
     </div>
 
-    <ul class="" data-navbar-target='menu'>
+    <ul class="hidden md:flex items-center gap-6">
         <% nav_links.each do |link| %>
-            <li class="">
-                <%= link_to link[:name], link[:path], class: "" %>
+            <li>
+                 <%= link_to link[:name], link[:path], 
+              class: "text-white font-medium hover:opacity-80 transition-opacity #{current_page?(link[:path]) ? 'relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white' : ''}" %>
             </li>
         <% end %>
     </ul>
