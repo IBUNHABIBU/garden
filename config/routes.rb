@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "about/index"
   get 'about', to: 'about#index', as: :about
   get 'contact', to: 'contact#index', as: :contact
