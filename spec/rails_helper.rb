@@ -79,3 +79,12 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+
+Capybara.register_driver :headless_chrome do |app|
+  Capybara::Selenium::Driver.new(app,
+    browser: :chrome,
+    options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu no-sandbox]))
+end
+
+Capybara.javascript_driver = :headless_chrome
