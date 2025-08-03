@@ -84,10 +84,14 @@ Shoulda::Matchers.configure do |config|
 end
 
 
-Capybara.register_driver :headless_chrome do |app|
-  Capybara::Selenium::Driver.new(app,
-    browser: :chrome,
-    options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu no-sandbox]))
+# In spec/rails_helper.rb or a support file
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless=new')  # New headless mode (better performance)
+  options.add_argument('--disable-gpu')
+  options.add_argument('--no-sandbox')   # Required for WSL/Linux
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.javascript_driver = :headless_chrome
+# Set as default JS driver
+Capybara.javascript_driver = :selenium_chrome_headless
