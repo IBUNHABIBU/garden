@@ -78,5 +78,4 @@ gem "cancancan", "~> 3.6"
 gem 'simplecov', require: false, group: :test
 
 # Gemfile
-gem 'webdrivers'
 
