@@ -83,3 +83,4 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Webdrivers::Chromedriver.required_version = '127.0.6533.88'
