@@ -82,18 +82,28 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+# Use system ChromeDriver (after installing with apt)
+Selenium::WebDriver::Chrome::Service.driver_path = '/usr/bin/chromedriver'
 
-# Set specific ChromeDriver version BEFORE any other Selenium configuration
-Webdrivers::Chromedriver.required_version = '127.0.6533.88'
-
-# Your existing Selenium/Capybara configuration
+# Configure Capybara with system Chrome
 Capybara.register_driver :chrome_headless do |app|
   options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument('--headless')
+  
+  # Chrome arguments for headless testing
+  options.add_argument('--headless=new')
   options.add_argument('--no-sandbox')
   options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--disable-gpu')
+  options.add_argument('--disable-extensions')
+  options.add_argument('--disable-background-timer-throttling')
+  options.add_argument('--disable-backgrounding-occluded-windows')
+  options.add_argument('--disable-renderer-backgrounding')
+  options.add_argument('--window-size=1920,1080')
   
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
+# Set drivers
 Capybara.javascript_driver = :chrome_headless
+Capybara.default_driver = :chrome_headless
+Capybara.default_max_wait_time = 5
