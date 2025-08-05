@@ -81,3 +81,19 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+
+# Set specific ChromeDriver version BEFORE any other Selenium configuration
+Webdrivers::Chromedriver.required_version = '127.0.6533.88'
+
+# Your existing Selenium/Capybara configuration
+Capybara.register_driver :chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :chrome_headless
