@@ -82,6 +82,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-Webdrivers::Chromedriver.required_version = '138.0.7204.183'
-Selenium::WebDriver::Chrome::Service.driver_path = '/usr/local/bin/chromedriver'
