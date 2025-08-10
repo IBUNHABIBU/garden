@@ -9,7 +9,7 @@ RSpec.describe 'Navbar', type: :system do
       expect(page).to have_link('Home', href: root_path)
       expect(page).to have_link('About', href: about_path)
       expect(page).to have_link('Contact', href: contact_path)
-      # expect(page).to have_link('Services', href: services_path)
+      expect(page).to have_link('Services', href: services_path)
       expect(page).to have_link('Projects', href: projects_path)
       expect(page).to have_link('Blog', href: blog_path)
     end
