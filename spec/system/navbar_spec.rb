@@ -4,7 +4,7 @@ RSpec.describe 'Navbar', type: :system do
   before { visit root_path }
 
   it 'shows all main navigation links' do
-    within 'nav[ data-controller="navbar"]' do
+    within 'nav[data-controller="navbar"]' do
       expect(page).to have_link('Home', href: root_path)
       expect(page).to have_link('About', href: about_path)
       expect(page).to have_link('Contact', href: contact_path)
