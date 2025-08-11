@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
+  devise_for :users, path: '', path_names: {
+    sign_in:  'adm_login',      # login
+    sign_up:  'super_register'  # signup
+  }
+
   get "about/index"
   get 'about', to: 'about#index', as: :about
   get 'contact', to: 'contact#index', as: :contact
