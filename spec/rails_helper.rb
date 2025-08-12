@@ -5,6 +5,10 @@ require_relative '../config/environment'
 
 require 'capybara/rspec'
 require 'selenium-webdriver'
+require 'simplecov'
+SimpleCov.start
+
+# Previous content of test helper now starts here
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
