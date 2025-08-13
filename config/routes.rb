@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get "dashboard/index"
+  end
   
   devise_for :users, path: '', path_names: {
     sign_in:  'adm_login',      # login
