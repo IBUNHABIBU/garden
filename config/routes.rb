@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     get "dashboard", to: "dashboard#index"
 
     resources :projects do 
-      patch: 
+      patch :toggle_publish, on: :member
+      put :sort, on: :collection
     end
   end
   
