@@ -39,3 +39,4 @@
 *.zip
 chromedriver*
 google-chrome-stable*
+coverage
