@@ -46,11 +46,13 @@
         <%= link_to link[:name], link[:path], 
             class: "text-2xl font-medium #{current_page?(link[:path]) ? 'text-primary-600 dark:text-primary-400' : 'text-dark-600 dark:text-gray-300 hover:text-primary-500'}" %>
       <% end %>
-      <% if current_user %>
-        <li class="navbar__item">
-          <%= link_to "Admin", admin_dashboard_path, class: "navbar__link" %>
-        </li>
-      <% end %>
+     
     </div>
+
+     <% if current_user %>
+        
+          <%= link_to "Admin", admin_dashboard_path, class: "navbar__link" %>
+        
+      <% end %>
   </div>
 </nav>
