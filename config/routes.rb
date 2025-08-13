@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get "dashboard/index"
+    get "dashboard", to: "dashboard#index"
+
+    resources :projects do 
+      patch: 
+    end
   end
   
   devise_for :users, path: '', path_names: {
