@@ -22,10 +22,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="font-sans antialiased text-gray-800 bg-white">
     <%= render 'layouts/navbar' %>
+    <%= render 'shared/flash' %>
     <main class="pt-16"> <!-- Add padding-top equal to navbar height -->
     <%= yield %>
+    <%= render 'shared/footer' %>
   </main>
   </body>
 </html>
