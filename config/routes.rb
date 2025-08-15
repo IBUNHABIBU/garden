@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "services/index"
   get "pages/show"
   namespace :admin do
     get "dashboard", to: "dashboard#index"
