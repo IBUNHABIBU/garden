@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "testimonials/index"
   get "services/index"
   get "pages/show"
   namespace :admin do
