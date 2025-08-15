@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     sign_up:  'super_register'  # signup
   }
 
+  
+  resources :testimonials, only: [:index]
+  resources :bookings, only: [:new, :create]
+  
   get "about/index"
   get 'about', to: 'about#index', as: :about
   get 'contact', to: 'contact#index', as: :contact
