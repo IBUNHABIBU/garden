@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get "contacts/new"
+  get "contacts/create"
+  get "bookings/new"
+  get "bookings/create"
   get "testimonials/index"
   get "services/index"
   get "pages/show"
