@@ -14,4 +14,4 @@ User.create!(
   password_confirmation: 'password123',
   admin: true,
   confirmed_at: Time.current # Skip confirmation if using confirmable
-)
+)AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
