@@ -81,3 +81,7 @@ gem 'simplecov', require: false, group: :test
 # Admin
 gem 'activeadmin'
 gem 'arctic_admin'
+
+gem 'friendly_id'
+gem 'image_processing'
+gem 'shrine'
