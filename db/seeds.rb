@@ -8,13 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # db/seeds.rb
-User.create!(
-  email: 'admin@example.com',
-  password: 'password123',
-  password_confirmation: 'password123',
-  admin: true,
-  confirmed_at: Time.current # Skip confirmation if using confirmable
-)
+# User.create!(
+#   email: 'admin@example.com',
+#   password: 'password123',
+#   password_confirmation: 'password123',
+#   admin: true,
+#   # confirmed_at: Time.current # Skip confirmation if using confirmable
+# )
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # Create home page
