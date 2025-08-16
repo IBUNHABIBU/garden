@@ -15,7 +15,20 @@
 #   admin: true,
 #   # confirmed_at: Time.current # Skip confirmation if using confirmable
 # )
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# Admin user for ActiveAdmin
+if Rails.env.development?
+  AdminUser.find_or_create_by!(email: 'admin@example.com') do |admin|
+    admin.password = 'password'
+    admin.password_confirmation = 'password'
+  end
+end
+
+# Regular user (for authentication via User model)
+User.find_or_create_by!(email: 'user@example.com') do |user|
+  user.password = 'password123'
+  user.password_confirmation = 'password123'
+  user.admin = true
+end
 
 # Create home page
 Page.create!(
