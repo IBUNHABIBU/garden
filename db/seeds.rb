@@ -72,3 +72,8 @@ Testimonial.create!([
     role: 'Frequent Traveler'
   }
 ])
+
+Page.find_or_create_by(slug: 'home') do |page|
+  page.title = 'Home'
+  page.content = 'Welcome to our website'
+end
