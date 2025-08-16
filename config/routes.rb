@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get "bookings/new"
+  get "bookings/create"
+  get "contact/index"
+  get "contact/new"
+  get "contact/create"
+  get "about/index"
+  get "services/index"
+  get "pages/home"
   namespace :admin do
       resources :bookings
       resources :pages
