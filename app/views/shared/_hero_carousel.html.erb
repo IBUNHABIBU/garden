@@ -1,5 +1,4 @@
 <div class="swiper hero-swiper" data-controller="swiper">
-
   <div class="swiper-wrapper">
     <% @hero_slides.each do |slide| %>
       <div class="swiper-slide relative bg-cover bg-center h-screen flex items-center" style="background-image: url('<%= image_path(slide[:image_url]) %>')">
