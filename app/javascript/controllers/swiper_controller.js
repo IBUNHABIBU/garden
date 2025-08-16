@@ -1,3 +1,4 @@
+// app/javascript/controllers/swiper_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -6,18 +7,18 @@ export default class extends Controller {
     effect: { type: String, default: 'fade' }
   }
 
-  async connect() {
-    // Dynamically import Swiper when the controller connects
-    const Swiper = await import('swiper')
+  async initialize() {
+    // Dynamically import Swiper and its modules
+    const { default: Swiper } = await import('swiper')
     const { Autoplay, Pagination, Navigation, EffectFade } = await import('swiper/modules')
     
-    this.swiper = new Swiper.default(this.element, {
+    this.swiper = new Swiper(this.element, {
       modules: [Autoplay, Pagination, Navigation, EffectFade],
       loop: true,
-      autoplay: {
+      autoplay: this.autoplayValue ? {
         delay: this.autoplayValue,
         disableOnInteraction: false,
-      },
+      } : false,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
