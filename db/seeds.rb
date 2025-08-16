@@ -16,9 +16,6 @@ User.create!(
   confirmed_at: Time.current # Skip confirmation if using confirmable
 )AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-# Create admin user
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
 # Create home page
 Page.create!(
   title: 'Home',
