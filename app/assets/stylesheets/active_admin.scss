@@ -16,4 +16,16 @@
 //
 //   .status_tag { background: #6090DB; }
 
-
+// Tailwind compatibility fixes
+.active_admin {
+  @import "tailwindcss/base";
+  @import "tailwindcss/components";
+  @import "tailwindcss/utilities";
+  
+  // Your custom admin styles here
+  .header {
+    @apply bg-indigo-600 text-white;
+  }
+  
+  // More custom styles as needed...
+}

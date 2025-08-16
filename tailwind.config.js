@@ -4,7 +4,10 @@ module.exports = {
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/components/**/*.rb'
+    './app/components/**/*.rb',
+    './app/assets/stylesheets/active_admin.scss',
+    './app/views/**/*.html.erb',
+    './app/admin/**/*.rb'
   ],
   theme: {
     extend: {
