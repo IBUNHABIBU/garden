@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root to: 'pages#show', id: 'home'
+  root 'pages#show'
 
   resources :services, only: [:index]
   resources :testimonials, only: [:index]
