@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root 'pages#show'
+  root 'pages#home'
 
   resources :services, only: [:index]
   resources :testimonials, only: [:index]
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new'
 
   # Catch-all for pages
-  get '/:id', to: 'pages#show', as: :page
+  get '/:id', to: 'pages#show', as: :page, constraints: { id: /(?!home|about|contact).+/ }
 end

@@ -4,6 +4,6 @@ class PagesController < ApplicationController
     @services = Service.limit(3)
     @testimonials = Testimonial.limit(3)
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, alert: "Page not found"
+    render file: Rails.root.join("public/404.html"), status: :not_found, layout: false
   end
 end
