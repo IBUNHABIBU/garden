@@ -357,7 +357,4 @@ ActiveAdmin.setup do |config|
   config.batch_actions = true
   config.localize_format = :long
 
-  config.use_webpacker = false
-  config.stylesheets = false
-  config.javascripts = false
 end
