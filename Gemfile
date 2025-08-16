@@ -79,7 +79,8 @@ gem "cancancan", "~> 3.6"
 gem 'simplecov', require: false, group: :test
 
 # Admin
-gem 'activeadmin'
+gem "activeadmin", github: "activeadmin/activeadmin"
+
 gem 'arctic_admin'
 
 gem 'friendly_id'
