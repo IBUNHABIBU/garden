@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "contact/create"
   get "about/index"
   get "services/index"
-  get "pages/home"
+  # get "pages/home"
+
+  root "pages#home"
   namespace :admin do
       resources :bookings
       resources :pages
