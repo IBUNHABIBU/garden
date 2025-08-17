@@ -1,0 +1,2 @@
+class CtaSection < ApplicationRecord
+end
