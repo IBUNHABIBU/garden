@@ -2,4 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add any custom styles here */
+/* Force concrete values for testing */
+.bg-red-500 {
+  background-color: #ef4444 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.p-8 {
+  padding: 2rem !important;
+}
+
+.m-4 {
+  margin: 1rem !important;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
+.border-4 {
+  border-width: 4px !important;
+  border-style: solid !important;
+}
+
+.border-blue-500 {
+  border-color: #3b82f6 !important;
+}
+
+.text-4xl {
+  font-size: 2.25rem !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.mt-4 {
+  margin-top: 1rem !important;
+}
+
+.text-lg {
+  font-size: 1.125rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+}
+
+.opacity-75 {
+  opacity: 0.75 !important;
+}
