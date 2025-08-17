@@ -1,0 +1,2 @@
+class HeroSection < ApplicationRecord
+end

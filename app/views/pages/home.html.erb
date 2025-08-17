@@ -1,13 +1,16 @@
+<!-- app/views/pages/home.html.erb -->
 <div class="min-h-screen">
-  <!-- Hero Section -->
+  <!-- ========== HERO SECTION ========== -->
   <div class="relative h-screen max-h-[800px] overflow-hidden">
-    <!-- Background image (replace with your Kilimanjaro photo) -->
-    <%= image_tag ".jpg", class: "w-full h-full object-cover", alt: "Mount Kilimanjaro" %>
+    <% if @hero.image.attached? %>
+      <%= image_tag @hero.image, class: "w-full h-full object-cover", alt: "Kilimanjaro view" %>
+    <% else %>
+      <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
+    <% end %>
     
-    <!-- Overlay with gradient matching logo colors -->
-    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/80 flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/60 flex items-center">
       <div class="container mx-auto px-6 text-white">
-        <!-- Logo-Inspired Heading -->
+        <!-- Logo -->
         <div class="mb-8">
           <span class="text-5xl md:text-6xl font-bold text-accent">MARVELLOUS</span>
           <span class="text-5xl md:text-6xl font-bold text-white">SAFARIS</span>
@@ -15,10 +18,10 @@
         </div>
 
         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          Conquer <span class="text-accent">Kilimanjaro</span><br>With Local Experts
+          <%= @hero.title || "Conquer Kilimanjaro With Local Experts" %>
         </h1>
         <p class="text-xl md:text-2xl mb-8 max-w-2xl">
-          Authentic Tanzanian safari experiences since 2010. 98% summit success rate.
+          <%= @hero.subtitle || "Authentic Tanzanian safari experiences since 2010" %>
         </p>
         <div class="flex flex-wrap gap-4">
           <%= link_to "Book Your Adventure", new_booking_path, 
@@ -30,7 +33,7 @@
     </div>
   </div>
 
-  <!-- Stats Bar -->
+  <!-- ========== STATS BAR ========== -->
   <div class="bg-secondary py-8 text-white">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -54,17 +57,23 @@
     </div>
   </div>
 
-  <!-- Featured Routes -->
+  <!-- ========== FEATURED ROUTES ========== -->
   <div id="routes" class="py-20 bg-white">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Kilimanjaro Routes</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Carefully curated itineraries for all experience levels</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <%= @routes.title || "Our Kilimanjaro Routes" %>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          <%= @routes.description || "Carefully curated itineraries for all experience levels" %>
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <% @routes.each do |route| %>
+        <% @route_items.each do |route| %>
           <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-accent">
-            <%= image_tag route.image, class: "w-full h-48 object-cover", alt: route.name if route.image.attached? %>
+            <% if route.image.attached? %>
+              <%= image_tag route.image, class: "w-full h-48 object-cover", alt: route.name %>
+            <% end %>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
                 <h3 class="text-xl font-bold text-primary"><%= route.name %></h3>
@@ -83,40 +92,32 @@
     </div>
   </div>
 
-  <!-- Why Choose Us -->
+  <!-- ========== WHY CHOOSE US ========== -->
   <div class="py-20 bg-gray-100">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why Marvellous Safaris?</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">We go beyond standard tours to deliver authentic experiences</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <%= @why_us.title || "Why Marvellous Safaris?" %>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          <%= @why_us.description || "We go beyond standard tours to deliver authentic experiences" %>
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-xl shadow-sm">
-          <div class="text-accent text-4xl mb-6">
-            <i class="fas fa-mountain"></i>
+        <% @services.each do |service| %>
+          <div class="bg-white p-8 rounded-xl shadow-sm">
+            <div class="text-accent text-4xl mb-6">
+              <i class="<%= service.icon || 'fas fa-mountain' %>"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3"><%= service.title %></h3>
+            <p class="text-gray-600"><%= service.description %></p>
           </div>
-          <h3 class="text-xl font-bold text-primary mb-3">Local Mountain Guides</h3>
-          <p class="text-gray-600">Our Chagga guides have 10+ years average experience on Kilimanjaro.</p>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-sm">
-          <div class="text-accent text-4xl mb-6">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary mb-3">Safety First</h3>
-          <p class="text-gray-600">Medical oxygen, pulse oximeters, and full emergency protocols on every climb.</p>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-sm">
-          <div class="text-accent text-4xl mb-6">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary mb-3">Eco-Conscious</h3>
-          <p class="text-gray-600">Leave No Trace principles and support for local conservation efforts.</p>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <!-- Testimonials -->
+  <!-- ========== TESTIMONIALS ========== -->
   <div class="py-20 bg-primary text-white">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
@@ -149,11 +150,15 @@
     </div>
   </div>
 
-  <!-- Call to Action -->
-  <div class="py-20 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(30, 86, 49, 0.9), rgba(160, 82, 45, 0.8)), url('<%= asset_path 'kilimanjaro-sunset.jpg' %>')">
+  <!-- ========== CALL TO ACTION ========== -->
+  <div class="py-20 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(30, 86, 49, 0.9), rgba(160, 82, 45, 0.8)), url('<%= @cta.background.attached? ? url_for(@cta.background) : asset_path('cta-default.jpg') %>')">
     <div class="container mx-auto px-6 text-center text-white">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Your Adventure?</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">Our team is standing by to help you plan the Kilimanjaro climb of a lifetime.</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        <%= @cta.title || "Ready for Your Adventure?" %>
+      </h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        <%= @cta.description || "Our team is standing by to help you plan the Kilimanjaro climb of a lifetime" %>
+      </p>
       <div class="flex flex-wrap justify-center gap-4">
         <%= link_to "Book Now", new_booking_path, 
             class: "bg-accent hover:bg-accent-dark text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg" %>
