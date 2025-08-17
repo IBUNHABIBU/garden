@@ -1,15 +1,165 @@
-<div class="relative h-screen max-h-[800px] overflow-hidden">
-  <%= image_tag @page.hero_image, class: "w-full h-full object-cover", alt: "Kilimanjaro view" if @page.hero_image.attached? %>
-  <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/60 flex items-center">
-    <div class="container mx-auto px-6 text-white">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">
-        <span class="text-accent">Explore</span> The Roof of Africa
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 max-w-2xl">
-        Journey to Kilimanjaro with Africa's premier safari experts
-      </p>
-      <%= link_to "Book Your Safari", new_booking_path, 
-          class: "bg-accent hover:bg-accent-dark text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300" %>
+<div class="min-h-screen">
+  <!-- Hero Section -->
+  <div class="relative h-screen max-h-[800px] overflow-hidden">
+    <!-- Background image (replace with your Kilimanjaro photo) -->
+    <%= image_tag "kilimanjaro-hero.jpg", class: "w-full h-full object-cover", alt: "Mount Kilimanjaro" %>
+    
+    <!-- Overlay with gradient matching logo colors -->
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/80 flex items-center">
+      <div class="container mx-auto px-6 text-white">
+        <!-- Logo-Inspired Heading -->
+        <div class="mb-8">
+          <span class="text-5xl md:text-6xl font-bold text-accent">MARVELLOUS</span>
+          <span class="text-5xl md:text-6xl font-bold text-white">SAFARIS</span>
+          <p class="text-xl mt-2 text-gray-100">LIMITED</p>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Conquer <span class="text-accent">Kilimanjaro</span><br>With Local Experts
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl">
+          Authentic Tanzanian safari experiences since 2010. 98% summit success rate.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <%= link_to "Book Your Adventure", new_booking_path, 
+              class: "bg-accent hover:bg-accent-dark text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg" %>
+          <%= link_to "Our Routes", "#routes", 
+              class: "border-2 border-white hover:border-accent text-white hover:text-accent font-bold py-3 px-8 rounded-full text-lg transition duration-300" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="bg-secondary py-8 text-white">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="p-4">
+          <p class="text-3xl font-bold text-accent">15+</p>
+          <p class="text-sm uppercase tracking-wider">Years Experience</p>
+        </div>
+        <div class="p-4">
+          <p class="text-3xl font-bold text-accent">98%</p>
+          <p class="text-sm uppercase tracking-wider">Summit Success</p>
+        </div>
+        <div class="p-4">
+          <p class="text-3xl font-bold text-accent">5,000+</p>
+          <p class="text-sm uppercase tracking-wider">Happy Climbers</p>
+        </div>
+        <div class="p-4">
+          <p class="text-3xl font-bold text-accent">7</p>
+          <p class="text-sm uppercase tracking-wider">Route Options</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Routes -->
+  <div id="routes" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Kilimanjaro Routes</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Carefully curated itineraries for all experience levels</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <% @routes.each do |route| %>
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-accent">
+            <%= image_tag route.image, class: "w-full h-48 object-cover", alt: route.name if route.image.attached? %>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-primary"><%= route.name %></h3>
+                <span class="bg-primary text-white text-sm px-3 py-1 rounded-full"><%= route.days %> days</span>
+              </div>
+              <p class="text-gray-600 mb-4"><%= route.short_description %></p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-accent"><%= number_to_currency(route.price, unit: "$") %>+</span>
+                <%= link_to "View Details", route_path(route), 
+                    class: "text-primary hover:text-accent font-medium transition" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why Marvellous Safaris?</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">We go beyond standard tours to deliver authentic experiences</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="text-accent text-4xl mb-6">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Local Mountain Guides</h3>
+          <p class="text-gray-600">Our Chagga guides have 10+ years average experience on Kilimanjaro.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="text-accent text-4xl mb-6">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Safety First</h3>
+          <p class="text-gray-600">Medical oxygen, pulse oximeters, and full emergency protocols on every climb.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="text-accent text-4xl mb-6">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Eco-Conscious</h3>
+          <p class="text-gray-600">Leave No Trace principles and support for local conservation efforts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="py-20 bg-primary text-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Climber Stories</h2>
+        <p class="text-gray-200 max-w-2xl mx-auto">Hear from those who've summited with us</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <% @testimonials.each do |testimonial| %>
+          <div class="bg-primary-light p-8 rounded-xl">
+            <div class="flex items-center mb-6">
+              <% if testimonial.avatar.attached? %>
+                <%= image_tag testimonial.avatar, class: "w-12 h-12 rounded-full object-cover", alt: testimonial.author_name %>
+              <% else %>
+                <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+                  <i class="fas fa-user text-primary"></i>
+                </div>
+              <% end %>
+              <div class="ml-4">
+                <h4 class="font-bold"><%= testimonial.author_name %></h4>
+                <p class="text-gray-300 text-sm"><%= testimonial.author_title %></p>
+              </div>
+            </div>
+            <p class="italic mb-4">"<%= testimonial.content %>"</p>
+            <div class="flex text-accent">
+              <% 5.times do %><i class="fas fa-star"></i><% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="py-20 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(30, 86, 49, 0.9), rgba(160, 82, 45, 0.8)), url('<%= asset_path 'kilimanjaro-sunset.jpg' %>')">
+    <div class="container mx-auto px-6 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Your Adventure?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Our team is standing by to help you plan the Kilimanjaro climb of a lifetime.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <%= link_to "Book Now", new_booking_path, 
+            class: "bg-accent hover:bg-accent-dark text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg" %>
+        <%= link_to "Contact Us", contact_path, 
+            class: "border-2 border-white hover:border-accent text-white hover:text-accent font-bold py-3 px-8 rounded-full text-lg transition duration-300" %>
+      </div>
     </div>
   </div>
 </div>
