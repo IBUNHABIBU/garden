@@ -10,11 +10,18 @@
 
 
 # db/seeds.rb
-HeroSection.create!(
+hero = HeroSection.create!(
   title: "Conquer Kilimanjaro With Local Experts",
-  subtitle: "Authentic Tanzanian safari experiences since 2010",
-  image: File.open(Rails.root.join('"app/assets/images/nyumbu.jpg"'))
-  
+  subtitle: "Authentic Tanzanian safari experiences since 2010"
+)
+
+hero.image.attach(
+  io: File.open(Rails.root.join("app/assets/images/nyumbu.jpg")),
+  filename: "nyumbu.jpg",
+  content_type: "image/jpeg"
+)
+
+
 WhyUsSection.create!(
   title: "Why Marvellous Safaris?",
   description: "We go beyond standard tours to deliver authentic experiences"
