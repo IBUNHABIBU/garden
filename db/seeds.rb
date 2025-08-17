@@ -18,7 +18,7 @@ hero = HeroSection.create!(
 hero.image.attach(
   io: File.open(Rails.root.join("app/assets/images/nyumbu.jpg")),
   filename: "nyumbu.jpg",
-  content_type: "image/jpeg"
+  content_type: "image/jpg"
 )
 
 
