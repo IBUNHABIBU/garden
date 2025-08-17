@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get "contact/create"
   get "about/index"
   get "services/index"
+  resources :services
+
+  get "/contact", to: "pages#contact", as: "contact"
   # get "pages/home"
 
   root "pages#home"

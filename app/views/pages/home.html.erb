@@ -69,7 +69,7 @@
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <% @routes.each do |route| %>
+        <% @tour_routes.each do |route| %>
           <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 border-t-4 border-accent">
             <% if route.image.attached? %>
               <%= image_tag route.image, class: "w-full h-48 object-cover", alt: route.name %>
