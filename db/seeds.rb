@@ -1,5 +1,5 @@
 # Clear existing data
-[RoutesSection, Route, HeroSection, WhyUsSection, CtaSection, Testimonial, Service].each do |model|
+[RoutesSection, HeroSection, WhyUsSection, CtaSection, Testimonial, Service].each do |model|
   model.destroy_all
 end
 
@@ -22,33 +22,33 @@ routes = RoutesSection.create!(
 )
 
 # Individual Routes
-klimanjaro = Route.create!(
-  name: "klimanjaro Route",
-  days: 5,
-  price: 1999,
-  difficulty: "Moderate",
-  short_description: "The 'Coca-Cola' route with hut accommodations"
-)
+# klimanjaro = Route.create!(
+#   name: "klimanjaro Route",
+#   days: 5,
+#   price: 1999,
+#   difficulty: "Moderate",
+#   short_description: "The 'Coca-Cola' route with hut accommodations"
+# )
 
-klimanjaro.image.attach(
-  io: File.open(Rails.root.join("app/assets/images/klimanjaro.jpg")),
-  filename: "klimanjaro.jpg",
-  content_type: "image/jpg"
-)
+# klimanjaro.image.attach(
+#   io: File.open(Rails.root.join("app/assets/images/klimanjaro.jpg")),
+#   filename: "klimanjaro.jpg",
+#   content_type: "image/jpg"
+# )
 
-lions = Route.create!(
-  name: "lions Route",
-  days: 6,
-  price: 2299,
-  difficulty: "Challenging",
-  short_description: "Scenic 'Whiskey' route with diverse landscapes"
-)
+# lions = Route.create!(
+#   name: "lions Route",
+#   days: 6,
+#   price: 2299,
+#   difficulty: "Challenging",
+#   short_description: "Scenic 'Whiskey' route with diverse landscapes"
+# )
 
-lions.image.attach(
-  io: File.open(Rails.root.join("app/assets/images/lions.jpg")),
-  filename: "lions.jpg",
-  content_type: "image/jpg"
-)
+# lions.image.attach(
+#   io: File.open(Rails.root.join("app/assets/images/lions.jpg")),
+#   filename: "lions.jpg",
+#   content_type: "image/jpg"
+# )
 
 # ========== WHY US SECTION ==========
 why_us = WhyUsSection.create!(
