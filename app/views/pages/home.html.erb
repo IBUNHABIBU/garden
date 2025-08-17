@@ -1,64 +1,15 @@
-<div class="relative">
-  <!-- Hero Section -->
-  <div class="relative h-screen max-h-[800px] overflow-hidden">
-    <%= image_tag @page.hero_image, class: "w-full h-full object-cover", alt: "Beautiful travel destination" if @page.hero_image.attached? %>
-    <div class="absolute inset-0 bg-black/40 flex items-center">
-      <div class="container mx-auto px-6 text-white">
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-fade-in-up"><%= @page.hero_title || "Discover Your Next Adventure" %></h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-2xl animate-fade-in-up delay-100"><%= @page.hero_subtitle || "Explore the world's most breathtaking destinations with our expert guides" %></p>
-        <%= link_to "Book Now", new_booking_path, class: "bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 animate-fade-in-up delay-200" %>
-      </div>
-    </div>
-  </div>
-
-  <!-- Featured Services -->
-  <div class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">We offer comprehensive travel solutions to make your journey unforgettable</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <% @services.each do |service| %>
-          <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-300">
-            <div class="text-amber-500 text-4xl mb-6">
-              <i class="<%= service.icon || 'fa-solid fa-globe' %>"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-3"><%= service.title %></h3>
-            <p class="text-gray-600"><%= service.description %></p>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <!-- Testimonials -->
-  <div class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Traveler Stories</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Hear from our satisfied customers about their experiences</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <% @testimonials.each do |testimonial| %>
-          <div class="bg-white p-8 rounded-xl shadow-sm">
-            <div class="flex items-center mb-6">
-              <% if testimonial.avatar.attached? %>
-                <%= image_tag testimonial.avatar, class: "w-12 h-12 rounded-full object-cover", alt: testimonial.author_name %>
-              <% else %>
-                <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center">
-                  <i class="fas fa-user text-gray-500"></i>
-                </div>
-              <% end %>
-              <div class="ml-4">
-                <h4 class="font-bold text-gray-800"><%= testimonial.author_name %></h4>
-                <p class="text-gray-500 text-sm"><%= testimonial.author_title %></p>
-              </div>
-            </div>
-            <p class="text-gray-600 italic">"<%= testimonial.content %>"</p>
-          </div>
-        <% end %>
-      </div>
+<div class="relative h-screen max-h-[800px] overflow-hidden">
+  <%= image_tag @page.hero_image, class: "w-full h-full object-cover", alt: "Kilimanjaro view" if @page.hero_image.attached? %>
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/60 flex items-center">
+    <div class="container mx-auto px-6 text-white">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">
+        <span class="text-accent">Explore</span> The Roof of Africa
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl">
+        Journey to Kilimanjaro with Africa's premier safari experts
+      </p>
+      <%= link_to "Book Your Safari", new_booking_path, 
+          class: "bg-accent hover:bg-accent-dark text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300" %>
     </div>
   </div>
 </div>
