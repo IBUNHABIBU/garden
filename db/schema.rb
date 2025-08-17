@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_17_041758) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_17_043701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -37,6 +37,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_17_041758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cta_sections", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hero_sections", force: :cascade do |t|
+    t.string "title"
+    t.text "subtitle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "hero_title"
     t.text "hero_subtitle"
@@ -59,6 +73,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_17_041758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "routes_sections", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -71,6 +92,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_17_041758) do
     t.string "author_name"
     t.string "author_title"
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "why_us_sections", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
