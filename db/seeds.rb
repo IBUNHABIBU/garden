@@ -91,7 +91,7 @@ cta = CtaSection.create!(
   description: "Our team is standing by to help you plan your climb"
 )
 
-cta.background.attach(
+cta.image.attach(
   io: File.open(Rails.root.join("app/assets/images/faru.jpg")),
   filename: "faru.jpg",
   content_type: "image/jpg"
