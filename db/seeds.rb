@@ -28,3 +28,13 @@ WhyUsSection.create!(
 )
 
 # Add similar seeds for other sections
+
+cta = CtaSection.create!(
+  title: "Ready for Your Adventure?",
+  description: "Our team is standing by to help you plan your climb")
+
+  hero.image.attach(
+  io: File.open(Rails.root.join("app/assets/images/nyumbu.jpg")),
+  filename: "nyumbu.jpg",
+  content_type: "image/jpg"
+)
