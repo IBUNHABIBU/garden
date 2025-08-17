@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get "bookings/new"
-  get "bookings/create"
+  
+  resources :bookings
+
   get "contact/index"
   get "contact/new"
   get "contact/create"
