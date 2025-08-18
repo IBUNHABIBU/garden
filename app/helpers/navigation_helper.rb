@@ -4,9 +4,9 @@ module NavigationHelper
     options[:class] += " inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
     
     if current_page?(path)
-      options[:class] += " border-indigo-500 text-gray-900"
+      options[:class] += " border-amber-300 text-gray-100"
     else
-      options[:class] += " border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+      options[:class] += " border-transparent text-gray-100 hover:border-amber-200 hover:text-amber-200"
     end
     
     link_to name, path, options
@@ -17,9 +17,9 @@ module NavigationHelper
     options[:class] += " block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
     
     if current_page?(path)
-      options[:class] += " bg-indigo-50 border-indigo-500 text-indigo-700"
+      options[:class] += " bg-green-700 border-amber-300 text-amber-300"
     else
-      options[:class] += " border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"
+      options[:class] += " border-transparent text-gray-100 hover:bg-green-600 hover:border-amber-200 hover:text-amber-200"
     end
     
     link_to name, path, options
