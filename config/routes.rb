@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :travel_tours do
     member do
-      delete :purge_image
+      delete 'purge_image/:image_id', to: 'travel_tours#purge_image', as: :purge_image
     end
   end
+
   resources :heros
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -21,7 +21,7 @@ class TravelToursController < ApplicationController
 
   # DELETE /tours/:id/purge_image/:image_id
   def purge_image
-    @tour = Tour.find(params[:id])
+    @tour = TravelTour.find(params[:id])
     image = @tour.gallery_images.find(params[:image_id])
     image.purge
     redirect_back fallback_location: @tour, notice: 'Image was successfully removed.'
