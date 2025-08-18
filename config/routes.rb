@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :destinations
   resources :travel_tours do
     member do
       delete 'purge_image/:image_id', to: 'travel_tours#purge_image', as: :purge_image
