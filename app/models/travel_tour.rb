@@ -1,4 +1,4 @@
-class Tour < ApplicationRecord
+class TravelTour < ApplicationRecord
   has_one_attached :image
   has_many_attached :gallery_images
 
