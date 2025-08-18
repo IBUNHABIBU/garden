@@ -60,7 +60,6 @@ development:
 test:
   <<: *default
   database: tour_test
-  database: tour_test
   username: postgres
   password: Voda0763
   host: localhost
@@ -89,6 +88,9 @@ production:
   primary: &primary_production
     <<: *default
     database: tour_production
+    username: tour
+    password: <%= ENV["TOUR_DATABASE_PASSWORD"] %>  
+    database: writehub_production
     username:  <%= ENV["POSTGRES_USER"] %>
     password: <%= ENV["POSTGRES_PASSWORD"] %>
     host:  tour-db
