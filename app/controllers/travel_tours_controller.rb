@@ -19,6 +19,14 @@ class TravelToursController < ApplicationController
   def edit
   end
 
+  # DELETE /tours/:id/purge_image/:image_id
+  def purge_image
+    @tour = Tour.find(params[:id])
+    image = @tour.gallery_images.find(params[:image_id])
+    image.purge
+    redirect_back fallback_location: @tour, notice: 'Image was successfully removed.'
+  end
+
   # POST /travel_tours or /travel_tours.json
   def create
     @travel_tour = TravelTour.new(travel_tour_params)
