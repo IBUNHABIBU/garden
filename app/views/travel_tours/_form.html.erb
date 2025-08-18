@@ -1,7 +1,7 @@
 <%= form_with(model: travel_tour, local: true, html: { class: "space-y-6" }) do |form| %>
   <% if travel_tour.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mb-6">
-      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+      <h2><%= pluralize(travel_tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
       <ul>
         <% tour.errors.each do |error| %>
           <li><%= error.full_message %></li>

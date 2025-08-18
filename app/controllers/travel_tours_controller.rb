@@ -65,6 +65,6 @@ class TravelToursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def travel_tour_params
-      params.expect(travel_tour: [ :name, :description, :price, :duration, :category, :featured, :highlights, :includes ])
+      params.expect(travel_tour: [ :name, :description, :price, :duration, :category, :featured, :highlights, :includes, :image, gallery_images: [ ]])
     end
 end
