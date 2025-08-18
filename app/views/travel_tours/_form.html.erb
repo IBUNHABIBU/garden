@@ -64,7 +64,7 @@
         <div class="mt-2">
           <p class="text-sm font-medium text-gray-700">Current Image</p>
           <div class="mt-1 w-32 h-32 overflow-hidden rounded-md border border-gray-200">
-            <%= image_tag tour.image, class: "w-full h-full object-cover" %>
+            <%= image_tag travel_tour.image, class: "w-full h-full object-cover" %>
           </div>
           <div class="mt-2 flex items-center">
             <%= form.check_box :remove_image, class: "h-4 w-4 rounded border-gray-300 text-green-800 focus:ring-green-800" %>
@@ -82,7 +82,7 @@
         <div class="mt-2">
           <p class="text-sm font-medium text-gray-700">Current Gallery Images</p>
           <div class="mt-1 grid grid-cols-3 gap-2">
-            <% tour.gallery_images.each do |image| %>
+            <% travel_tour.gallery_images.each do |image| %>
               <div class="relative">
                 <%= image_tag image, class: "w-full h-24 object-cover rounded-md border border-gray-200" %>
                 <%= link_to 'Remove', purge_image_tour_path(tour, image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" %>
