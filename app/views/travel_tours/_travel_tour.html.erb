@@ -1,0 +1,34 @@
+<div id="<%= dom_id travel_tour %>" class="w-full sm:w-auto my-5 space-y-5">
+  <div>
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= travel_tour.name %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= travel_tour.description %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Price:</strong>
+    <%= travel_tour.price %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Duration:</strong>
+    <%= travel_tour.duration %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= travel_tour.category %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Featured:</strong>
+    <%= travel_tour.featured? ? "Yes" : "No" %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Highlights:</strong>
+    <%= travel_tour.highlights %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Includes:</strong>
+    <%= travel_tour.includes %>
+  </div>
+</div>

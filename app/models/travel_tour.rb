@@ -1,0 +1,2 @@
+class TravelTour < ApplicationRecord
+end
