@@ -1,15 +1,39 @@
-<% content_for :title, "Showing destination" %>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-green-800"><%= @destination.name %>, <%= @destination.country %></h1>
+    <div class="space-x-3">
+      <%= link_to 'Edit', edit_destination_path(@destination), class: "px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700" %>
+      <%= link_to 'Back', destinations_path, class: "px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50" %>
+    </div>
+  </div>
 
-<div class="md:w-2/3 w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <h1 class="font-bold text-4xl">Showing destination</h1>
-
-  <%= render @destination %>
-
-  <%= link_to "Edit this destination", edit_destination_path(@destination), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= link_to "Back to destinations", destinations_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= button_to "Destroy this destination", @destination, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Destination Information</h3>
+    </div>
+    <div class="px-4 py-5 sm:p-6">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div>
+          <% if @destination.image.attached? %>
+            <div class="rounded-lg overflow-hidden mb-6">
+              <%= image_tag @destination.image, class: "w-full h-auto" %>
+            </div>
+          <% end %>
+        </div>
+        <div>
+          <div class="prose max-w-none">
+            <h3 class="text-xl font-bold text-gray-900">About <%= @destination.name %></h3>
+            <p class="text-gray-700"><%= @destination.description %></p>
+          </div>
+          <div class="mt-8">
+            <% if @destination.featured? %>
+              <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-amber-100 text-amber-800">
+                Featured Destination
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
