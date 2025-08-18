@@ -90,7 +90,7 @@
               <p class="text-gray-600 mb-4"><%= truncate(tour.description, length: 100) %></p>
               <div class="flex items-center justify-between">
                 <span class="text-lg font-bold text-green-800">$<%= tour.price %></span>
-                <%= link_to "View Tour", tour_path(tour), class: "px-4 py-2 text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 rounded-md transition" %>
+                <%= link_to "View Tour", travel_tour_path(tour), class: "px-4 py-2 text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 rounded-md transition" %>
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@
       </div>
 
       <div class="mt-12 text-center">
-        <%= link_to "View All Tours", tours_path, class: "px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-700 shadow-sm" %>
+        <%= link_to "View All Tours", travel_tours_path, class: "px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-700 shadow-sm" %>
       </div>
     <% else %>
       <div class="text-center py-8">

@@ -90,17 +90,16 @@
           <div class="mt-1 grid grid-cols-3 gap-2">
             <% travel_tour.gallery_images.each do |image| %>
               <div class="relative">
-              <% if travel_tour.persisted? && travel_tour.gallery_images.attached? %>
-                <% travel_tour.gallery_images.each do |image| %>
-                  <div class="relative">
-                    <%= image_tag image, class: "w-full h-24 object-cover rounded-md border border-gray-200" %>
-                    <%= link_to 'Remove', purge_image_travel_tour_path(travel_tour, image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" %>
-                  </div>
+                <% if travel_tour.persisted? && travel_tour.gallery_images.attached? %>
+                  <% travel_tour.gallery_images.each do |image| %>
+                    <div class="relative">
+                      <%= image_tag image, class: "w-full h-24 object-cover rounded-md border border-gray-200" %>
+                      <%= link_to 'Remove', purge_image_travel_tour_path(travel_tour, image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <p class="text-gray-400 text-sm">No gallery images uploaded yet</p>
                 <% end %>
-              <% else %>
-              <p class="text-gray-400 text-sm">No gallery images uploaded yet</p>
-             <% end %>   
-            <%= link_to 'Remove', purge_image_travel_tour_path(travel_tour, image_id: image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" %>
               </div>
             <% end %>
           </div>
