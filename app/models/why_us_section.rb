@@ -1,2 +1,0 @@
-class WhyUsSection < ApplicationRecord
-end

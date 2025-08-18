@@ -51,11 +51,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -65,10 +60,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem 'devise' # for authentication
-gem 'administrate' # for admin dashboard
-gem 'active_storage_validations' # for file upload validations
-gem 'image_processing' # for image variants

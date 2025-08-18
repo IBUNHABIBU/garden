@@ -1,2 +1,0 @@
-class RoutesSection < ApplicationRecord
-end

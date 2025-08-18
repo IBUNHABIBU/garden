@@ -1,26 +1,4 @@
 Rails.application.routes.draw do
-  
-  resources :bookings
-
-  get "contact/index"
-  get "contact/new"
-  get "contact/create"
-  get "about/index"
-  get "services/index"
-  resources :services
-
-  get "/contact", to: "pages#contact", as: "contact"
-  # get "pages/home"
-
-  root "pages#home"
-  namespace :admin do
-      resources :bookings
-      resources :pages
-      resources :services
-      resources :testimonials
-
-      root to: "bookings#index"
-    end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
