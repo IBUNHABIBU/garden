@@ -59,16 +59,16 @@
               </div>
               <div>
                 <dt class="text-sm font-medium text-gray-500">Duration</dt>
-                <dd class="mt-1 text-sm text-gray-900"><%= @tour.duration %> days</dd>
+                <dd class="mt-1 text-sm text-gray-900"><%= @travel_tour.duration %> days</dd>
               </div>
               <div>
                 <dt class="text-sm font-medium text-gray-500">Price</dt>
-                <dd class="mt-1 text-sm text-gray-900">$<%= @tour.price %> per person</dd>
+                <dd class="mt-1 text-sm text-gray-900">$<%= @travel_tour.price %> per person</dd>
               </div>
               <div>
                 <dt class="text-sm font-medium text-gray-500">Featured</dt>
                 <dd class="mt-1 text-sm text-gray-900">
-                  <% if @tour.featured? %>
+                  <% if @travel_tour.featured? %>
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-amber-100 text-amber-800">
                       Featured Tour
                     </span>
@@ -84,11 +84,11 @@
             </div>
           </div>
 
-          <% if @tour.gallery_images.attached? %>
+          <% if @travel_tour.gallery_images.attached? %>
             <div class="mt-6">
               <h3 class="text-lg font-medium text-gray-900 mb-4">Gallery</h3>
               <div class="grid grid-cols-2 gap-2">
-                <% @tour.gallery_images.each do |image| %>
+                <% @travel_tour.gallery_images.each do |image| %>
                   <div class="rounded-md overflow-hidden">
                     <%= image_tag image, class: "w-full h-24 object-cover" %>
                   </div>
