@@ -64,11 +64,13 @@
         <div class="mt-2">
           <p class="text-sm font-medium text-gray-700">Current Image</p>
           <div class="mt-1 w-32 h-32 overflow-hidden rounded-md border border-gray-200">
-             <% if travel_tour.image.attached? %>
-              <%= image_tag travel_tour.image, class: "w-full h-full object-cover" %>
-            <% else %>
-              <span class="text-gray-400 text-sm">No image uploaded</span>
-            <% end %>
+             <% if travel_tour.persisted? && travel_tour.image.attached? %>
+                <%= image_tag travel_tour.image, class: "w-full h-full object-cover" %>
+              <% elsif params.dig(:travel_tour, :image).present? %>
+                <span class="text-green-600 text-sm">Image selected (will upload on save)</span>
+              <% else %>
+                <span class="text-gray-400 text-sm">No image uploaded</span>
+              <% end %>
           </div>
           <div class="mt-2 flex items-center">
             <%= form.check_box :remove_image, class: "h-4 w-4 rounded border-gray-300 text-green-800 focus:ring-green-800" %>
