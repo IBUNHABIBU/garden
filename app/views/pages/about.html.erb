@@ -74,12 +74,42 @@
       <% @values.each do |value| %>
         <div class="text-center p-6 bg-white rounded-lg shadow-sm">
           <div class="mx-auto h-16 w-16 bg-green-100 rounded-full flex items-center justify-center text-green-800 mb-4">
-            <%= inline_svg_tag value[:icon], class: "h-8 w-8" %>
+          
           </div>
           <h3 class="text-lg font-medium text-gray-900"><%= value[:title] %></h3>
           <p class="mt-2 text-gray-600"><%= value[:description] %></p>
         </div>
       <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- app/views/pages/about.html.erb -->
+<section class="py-16 bg-amber-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">
+      Our Core Values
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Value 1 -->
+      <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+        <div class="mx-auto h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <%= value_icon(:sustainability, class: "text-green-600") %>
+        </div>
+        <h3 class="text-lg font-medium text-gray-900">Sustainability</h3>
+        <p class="mt-2 text-gray-600">We commit to eco-friendly practices that protect natural habitats.</p>
+      </div>
+      
+      <!-- Value 2 -->
+      <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+        <div class="mx-auto h-16 w-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+          <%= value_icon(:authenticity, class: "text-amber-600") %>
+        </div>
+        <h3 class="text-lg font-medium text-gray-900">Authenticity</h3>
+        <p class="mt-2 text-gray-600">Genuine local experiences, not tourist traps.</p>
+      </div>
+      
+      <!-- Add remaining values similarly -->
     </div>
   </div>
 </section>
