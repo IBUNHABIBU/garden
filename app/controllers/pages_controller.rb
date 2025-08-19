@@ -13,11 +13,22 @@ class PagesController < ApplicationController
 
     @values = [
       {
-        title: "Sustainable Travel",
-        icon: "leaf.svg",
-        description: "We minimize environmental impact and support local conservation."
+        icon: :sustainability,
+        title: "Sustainability",
+        description: "We commit to eco-friendly practices that protect natural habitats.",
+        color: "green"
       },
-      # ... more values
+      {
+        icon: :authenticity,
+        title: "Authenticity", 
+        description: "Genuine local experiences, not tourist traps.",
+        color: "amber"
+      },
+      # Add other values...
     ]
+    
+  end
+
+  def contact 
   end
 end
