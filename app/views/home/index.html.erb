@@ -272,3 +272,20 @@
     </div>
   </div>
 </section>
+
+
+<!-- Call to Action Section -->
+<section class="bg-<%= @cta.background_color || 'green-800' %>">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+      <span class="block"><%= @cta.title %></span>
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto text-xl text-green-100">
+      <%= @cta.subtitle %>
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <%= link_to @cta.button_text, @cta.button_url, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-amber-300 hover:bg-amber-400 md:py-4 md:text-lg md:px-10 transition duration-300" %>
+      <%= link_to @cta.secondary_button_text, @cta.secondary_button_url, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-600 md:py-4 md:text-lg md:px-10 transition duration-300" %>
+    </div>
+  </div>
+</section>

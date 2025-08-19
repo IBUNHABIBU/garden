@@ -6,4 +6,16 @@ class HomeController < ApplicationController
     @testimonials = Testimonial.order(rating: :desc).limit(3) # Add this line
     @cta = Cta.first || default_cta # Add this line
   end
+
+  private
+    def default_cta
+    OpenStruct.new(
+      title: "Ready for Your Next Adventure?",
+      subtitle: "Join thousands of happy travelers who've explored with us",
+      button_text: "Book Now",
+      button_url: tours_path,
+      secondary_button_text: "Contact Us",
+      secondary_button_url: contact_path
+    )
+   end
 end
