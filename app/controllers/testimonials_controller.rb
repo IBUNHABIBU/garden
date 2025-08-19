@@ -19,7 +19,7 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(testimonial_params)
 
     if @testimonial.save
-      redirect_to @testimonial, notice: 'Testimonial was successfully created.'
+      redirect_to root_path, notice: 'Testimonial was successfully created.'
     else
       render :new
     end
