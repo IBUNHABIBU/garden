@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     @featured_tours = TravelTour.featured.limit(3)
     @popular_destinations = Destination.featured.limit(3) # Add this line
     @testimonials = Testimonial.order(rating: :desc).limit(3) # Add this line
-    
+    @cta = Cta.first || default_cta # Add this line
   end
 end
