@@ -1,9 +1,8 @@
-<%= form_with(model: trekking, class: "contents") do |form| %>
+<%= form_with(model: trekking) do |form| %>
   <% if trekking.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+    <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mb-4">
       <h2><%= pluralize(trekking.errors.count, "error") %> prohibited this trekking from being saved:</h2>
-
-      <ul class="list-disc ml-6">
+      <ul>
         <% trekking.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,37 +10,37 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:title].none?, "border-red-400 focus:outline-red-600": trekking.errors[:title].any?}] %>
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :duration %>
-    <%= form.number_field :duration, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:duration].none?, "border-red-400 focus:outline-red-600": trekking.errors[:duration].any?}] %>
+  <div class="mb-4">
+    <%= form.label :duration, "Duration (days)", class: "block text-sm font-medium text-gray-700" %>
+    <%= form.number_field :duration, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :difficulty %>
-    <%= form.text_field :difficulty, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:difficulty].none?, "border-red-400 focus:outline-red-600": trekking.errors[:difficulty].any?}] %>
+  <div class="mb-4">
+    <%= form.label :difficulty, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.select :difficulty, ['easy', 'medium', 'challenging'], {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :overview_title %>
-    <%= form.text_field :overview_title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:overview_title].none?, "border-red-400 focus:outline-red-600": trekking.errors[:overview_title].any?}] %>
+  <div class="mb-4">
+    <%= form.label :overview_title, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :overview_title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :overview_description %>
-    <%= form.textarea :overview_description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:overview_description].none?, "border-red-400 focus:outline-red-600": trekking.errors[:overview_description].any?}] %>
+  <div class="mb-4">
+    <%= form.label :overview_description, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_area :overview_description, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :content %>
-    <%= form.rich_textarea :content, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": trekking.errors[:content].none?, "border-red-400 focus:outline-red-600": trekking.errors[:content].any?}] %>
+  <div class="mb-4">
+    <%= form.label :content, "Itinerary and Details", class: "block text-sm font-medium text-gray-700" %>
+    <%= form.rich_text_area :content, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  <div class="mb-4">
+    <%= form.submit class: "inline-flex justify-center rounded-md border border-transparent bg-deep-green py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-golden-yellow focus:ring-offset-2" %>
   </div>
 <% end %>
