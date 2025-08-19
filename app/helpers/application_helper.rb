@@ -23,4 +23,15 @@ module ApplicationHelper
       </svg>'.html_safe
     end
   end
+
+  def inline_svg_tag(filename, options = {})
+  file_path = Rails.root.join('app', 'assets', 'images', "#{filename}.svg")
+    if File.exist?(file_path)
+      file_content = File.read(file_path)
+      css_class = options[:class] || ''
+      file_content.gsub('<svg', "<svg class='#{css_class}'").html_safe
+    else
+      content_tag(:span, "Icon not found: #{filename}", class: options[:class])
+    end
+  end
 end
