@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_18_160602) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_19_051112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -55,6 +55,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_18_160602) do
     t.string "title"
     t.string "subtitle"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string "author_name"
+    t.string "author_title"
+    t.text "content"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

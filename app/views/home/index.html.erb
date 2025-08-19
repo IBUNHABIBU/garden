@@ -249,9 +249,9 @@
     <% else %>
       <div class="text-center py-8">
         <p class="text-gray-500 mb-4">No testimonials yet</p>
-        <% if current_user&.admin? %>
+        
           <%= link_to "Add Testimonial", new_testimonial_path, class: "px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700" %>
-        <% end %>
+        
       </div>
     <% end %>
   </div>

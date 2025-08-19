@@ -28,7 +28,7 @@
 
     <div>
       <%= form.label :rating, class: "block text-sm font-medium text-gray-700" %>
-      <%= form.select :rating, options_for_select((1..5).map { |r| [r, r] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-800 focus:ring-green-800 sm:text-sm" %>
+      <%= form.select :rating, options_for_select((1..5).map { |r| [r, r] }), {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-800 focus:ring-green-800 sm:text-sm" %>
     </div>
 
     <div class="sm:col-span-2">
