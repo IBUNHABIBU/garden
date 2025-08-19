@@ -203,3 +203,56 @@
     <% end %>
   </div>
 </section>
+
+<!-- Testimonials Section -->
+<section class="py-16 bg-neutral-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+        Traveler Stories
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+        Don't just take our word for it
+      </p>
+    </div>
+
+    <% if @testimonials.any? %>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <% @testimonials.each do |testimonial| %>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <% if testimonial.avatar.attached? %>
+                <%= image_tag testimonial.avatar, class: "h-12 w-12 rounded-full object-cover", alt: testimonial.author_name %>
+              <% else %>
+                <div class="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center">
+                  <span class="text-gray-500 text-xs">Photo</span>
+                </div>
+              <% end %>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-gray-900"><%= testimonial.author_name %></h4>
+                <% if testimonial.author_title.present? %>
+                  <p class="text-amber-600 text-sm"><%= testimonial.author_title %></p>
+                <% end %>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">"<%= testimonial.content %>"</p>
+            <div class="mt-4 flex">
+              <span class="text-amber-400"><%= testimonial.star_rating %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mt-12 text-center">
+        <%= link_to "Read More Stories", testimonials_path, class: "px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-700 shadow-sm" %>
+      </div>
+    <% else %>
+      <div class="text-center py-8">
+        <p class="text-gray-500 mb-4">No testimonials yet</p>
+        <% if current_user&.admin? %>
+          <%= link_to "Add Testimonial", new_testimonial_path, class: "px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
