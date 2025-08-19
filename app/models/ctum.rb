@@ -1,0 +1,2 @@
+class Ctum < ApplicationRecord
+end
