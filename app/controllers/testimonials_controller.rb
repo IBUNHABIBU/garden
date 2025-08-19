@@ -21,7 +21,7 @@ class TestimonialsController < ApplicationController
     if @testimonial.save
       redirect_to root_path, notice: 'Testimonial was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
