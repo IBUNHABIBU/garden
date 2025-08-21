@@ -21,7 +21,7 @@ retain_containers: 3
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: habibutech.online
+  host: habibtech.online
   app_port: 3000
 
 # Credentials for your image host.
