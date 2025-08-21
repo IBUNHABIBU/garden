@@ -1,9 +1,8 @@
-<%= form_with(model: safari, class: "contents") do |form| %>
+<%= form_with(model: safari) do |form| %>
   <% if safari.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+    <div class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mb-4">
       <h2><%= pluralize(safari.errors.count, "error") %> prohibited this safari from being saved:</h2>
-
-      <ul class="list-disc ml-6">
+      <ul>
         <% safari.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,117 +10,157 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:title].none?, "border-red-400 focus:outline-red-600": safari.errors[:title].any?}] %>
-  </div>
+  <div class="space-y-8">
+    <!-- Basic Information -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Basic Information</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <%= form.label :title, "Safari Title *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :duration, "Duration (days) *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.number_field :duration, min: 1, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :difficulty, "Difficulty Level *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.select :difficulty, ['easy', 'moderate', 'challenging'], {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :best_season, "Best Season *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :best_season, placeholder: "e.g., June-October, Year-round", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :duration %>
-    <%= form.number_field :duration, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:duration].none?, "border-red-400 focus:outline-red-600": safari.errors[:duration].any?}] %>
-  </div>
+    <!-- Pricing & Capacity -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Pricing & Capacity</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <%= form.label :price_per_person, "Price per Person ($) *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.number_field :price_per_person, step: 0.01, min: 0, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :min_people, "Minimum People *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.number_field :min_people, min: 1, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :max_people, "Maximum People *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.number_field :max_people, min: 1, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :difficulty %>
-    <%= form.text_field :difficulty, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:difficulty].none?, "border-red-400 focus:outline-red-600": safari.errors[:difficulty].any?}] %>
-  </div>
+    <!-- Logistics -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Logistics</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <%= form.label :departure_location, "Departure Location *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :departure_location, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :return_location, "Return Location *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :return_location, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :accommodation_type, "Accommodation Type *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :accommodation_type, placeholder: "e.g., Lodge, Tented Camp", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :transport_type, "Transport Type *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :transport_type, placeholder: "e.g., 4x4 Safari Vehicle", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :overview_title %>
-    <%= form.text_field :overview_title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:overview_title].none?, "border-red-400 focus:outline-red-600": safari.errors[:overview_title].any?}] %>
-  </div>
+    <!-- Images -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Images</h3>
+      
+      <!-- Main Image -->
+      <div class="mb-6">
+        <%= form.label :main_image, "Main Featured Image *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.file_field :main_image, accept: "image/jpeg,image/png,image/webp", class: "mt-1 block w-full" %>
+        <%= form.label :main_image_alt, "Image Alt Text (for accessibility)", class: "block text-sm font-medium text-gray-700 mt-2" %>
+        <%= form.text_field :main_image_alt, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <% if safari.main_image.attached? %>
+          <div class="mt-2">
+            <%= image_tag safari.main_image, class: "h-32 w-auto rounded-lg" %>
+          </div>
+        <% end %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :overview_description %>
-    <%= form.textarea :overview_description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:overview_description].none?, "border-red-400 focus:outline-red-600": safari.errors[:overview_description].any?}] %>
-  </div>
+      <!-- Gallery Images -->
+      <div>
+        <%= form.label :gallery_images, "Additional Gallery Images", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.file_field :gallery_images, multiple: true, accept: "image/jpeg,image/png,image/webp", class: "mt-1 block w-full" %>
+        
+        <% if safari.gallery_images.attached? %>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+            <% safari.gallery_images.each do |image| %>
+              <div class="relative">
+                <%= image_tag image, class: "h-24 w-full object-cover rounded-lg" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :main_attractions %>
-    <%= form.textarea :main_attractions, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:main_attractions].none?, "border-red-400 focus:outline-red-600": safari.errors[:main_attractions].any?}] %>
-  </div>
+    <!-- Text Content Areas -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Content</h3>
+      
+      <div class="space-y-4">
+        <%= form.label :overview_title, "Overview Title *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :overview_title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :overview_description, "Overview Description *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :overview_description, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :main_attractions, "Main Attractions *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :main_attractions, rows: 2, placeholder: "e.g., Big Five, Great Migration, Bird Watching", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :wildlife_highlight, "Wildlife Highlights", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :wildlife_highlight, rows: 2, placeholder: "Key animals visitors can expect to see", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        
+        <%= form.label :daily_activities, "Daily Activities", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :daily_activities, rows: 2, placeholder: "Typical daily schedule and activities", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :best_season %>
-    <%= form.text_field :best_season, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:best_season].none?, "border-red-400 focus:outline-red-600": safari.errors[:best_season].any?}] %>
-  </div>
+    <!-- Services -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Services & Requirements</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <%= form.label :included_services, "Included Services *", class: "block text-sm font-medium text-gray-700" %>
+          <%= form.text_area :included_services, rows: 4, placeholder: "One service per line", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green font-mono text-sm" %>
+        </div>
+        
+        <div>
+          <%= form.label :excluded_services, "Excluded Services *", class: "block text-sm font-medium text-gray-700" %>
+          <%= form.text_area :excluded_services, rows: 4, placeholder: "One service per line", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green font-mono text-sm" %>
+        </div>
+      </div>
+      
+      <div class="mt-4">
+        <%= form.label :what_to_bring, "What to Bring *", class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :what_to_bring, rows: 3, placeholder: "Essential items visitors should bring", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :price_per_person %>
-    <%= form.text_field :price_per_person, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:price_per_person].none?, "border-red-400 focus:outline-red-600": safari.errors[:price_per_person].any?}] %>
-  </div>
+    <!-- Status -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-medium text-deep-green mb-4">Status & Visibility</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <%= form.label :status, "Status", class: "block text-sm font-medium text-gray-700" %>
+          <%= form.select :status, ['active', 'inactive', 'seasonal'], { include_blank: "Select status..." }, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-deep-green focus:ring-deep-green" %>
+        </div>
+        
+        <div class="flex items-center">
+          <%= form.check_box :is_featured, class: "h-4 w-4 text-deep-green focus:ring-deep-green border-gray-300 rounded" %>
+          <%= form.label :is_featured, "Feature this safari on homepage", class: "ml-2 block text-sm text-gray-700" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :min_people %>
-    <%= form.number_field :min_people, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:min_people].none?, "border-red-400 focus:outline-red-600": safari.errors[:min_people].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :max_people %>
-    <%= form.number_field :max_people, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:max_people].none?, "border-red-400 focus:outline-red-600": safari.errors[:max_people].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :departure_location %>
-    <%= form.text_field :departure_location, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:departure_location].none?, "border-red-400 focus:outline-red-600": safari.errors[:departure_location].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :return_location %>
-    <%= form.text_field :return_location, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:return_location].none?, "border-red-400 focus:outline-red-600": safari.errors[:return_location].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :accommodation_type %>
-    <%= form.text_field :accommodation_type, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:accommodation_type].none?, "border-red-400 focus:outline-red-600": safari.errors[:accommodation_type].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :transport_type %>
-    <%= form.text_field :transport_type, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:transport_type].none?, "border-red-400 focus:outline-red-600": safari.errors[:transport_type].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :included_services %>
-    <%= form.textarea :included_services, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:included_services].none?, "border-red-400 focus:outline-red-600": safari.errors[:included_services].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :excluded_services %>
-    <%= form.textarea :excluded_services, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:excluded_services].none?, "border-red-400 focus:outline-red-600": safari.errors[:excluded_services].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :what_to_bring %>
-    <%= form.textarea :what_to_bring, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:what_to_bring].none?, "border-red-400 focus:outline-red-600": safari.errors[:what_to_bring].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :daily_activities %>
-    <%= form.textarea :daily_activities, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:daily_activities].none?, "border-red-400 focus:outline-red-600": safari.errors[:daily_activities].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :wildlife_highlight %>
-    <%= form.textarea :wildlife_highlight, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:wildlife_highlight].none?, "border-red-400 focus:outline-red-600": safari.errors[:wildlife_highlight].any?}] %>
-  </div>
-
-  <div class="my-5 flex items-center gap-2">
-    <%= form.label :is_featured %>
-    <%= form.checkbox :is_featured, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": safari.errors[:is_featured].none?, "border-red-400 focus:outline-red-600": safari.errors[:is_featured].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :status %>
-    <%= form.text_field :status, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:status].none?, "border-red-400 focus:outline-red-600": safari.errors[:status].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :main_image_alt %>
-    <%= form.textarea :main_image_alt, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": safari.errors[:main_image_alt].none?, "border-red-400 focus:outline-red-600": safari.errors[:main_image_alt].any?}] %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+    <!-- Submit Button -->
+    <div class="flex justify-end">
+      <%= form.submit safari.persisted? ? "Update Safari" : "Create Safari", class: "inline-flex justify-center rounded-md border border-transparent bg-deep-green py-3 px-6 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-golden-yellow focus:ring-offset-2" %>
+    </div>
   </div>
 <% end %>
