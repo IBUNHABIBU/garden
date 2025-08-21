@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :safaris
   resources :bookings
   resources :trekkings
   get "pages/about"
