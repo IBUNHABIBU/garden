@@ -1,0 +1,2 @@
+class Safari < ApplicationRecord
+end
