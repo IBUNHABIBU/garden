@@ -12,3 +12,33 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+
+
+  /* Primary (Deep green #1E5631):
+
+Using green-800 (#065f46) - the closest match in Tailwind
+
+Alternative: emerald-800 (#065f46) or green-900 (#064e3b)
+
+Secondary (Earthy brown #A0522D):
+
+Using amber-800 (#92400e) - closest earthy tone
+
+Alternative: brown isn't in Tailwind by default, but amber-900 (#78350f) is darker
+
+Accent (Golden yellow #F6BE00):
+
+Using amber-300 (#fcd34d) - bright golden yellow
+
+Alternative: yellow-300 (#fde047) for more vibrancy
+
+Neutral (Warm white #F5F5F5):
+
+Using gray-50 (#f9fafb) - off-white
+
+Alternative: gray-100 (#f3f4f6) for slightly darker
+
+Using gray-800 (#1f2937) - dark neutral
+
+Alternative: gray-900 (#111827) for even darker */
