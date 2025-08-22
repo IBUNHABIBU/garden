@@ -34,4 +34,36 @@ module ApplicationHelper
       content_tag(:span, "Icon not found: #{filename}", class: options[:class])
     end
   end
+
+  def nav_link_to(text, path, options = {})
+    options[:class] ||= ""
+    options[:class] += " inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+    
+    current_path = request.path
+    is_current = current_path == path || (path != root_path && current_path.start_with?(path))
+    
+    if is_current
+      options[:class] += " border-amber-300 text-gray-100" # Golden yellow border, white text
+    else
+      options[:class] += " border-transparent text-gray-300 hover:border-amber-300 hover:text-gray-100"
+    end
+    
+    link_to text, path, options
+  end
+
+  def mobile_nav_link_to(text, path, options = {})
+    options[:class] ||= ""
+    options[:class] += " block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+    
+    current_path = request.path
+    is_current = current_path == path || (path != root_path && current_path.start_with?(path))
+    
+    if is_current
+      options[:class] += " border-amber-300 bg-green-600 text-white"
+    else
+      options[:class] += " border-transparent text-gray-100 hover:bg-green-600 hover:border-amber-300 hover:text-white"
+    end
+    
+    link_to text, path, options
+  end
 end
