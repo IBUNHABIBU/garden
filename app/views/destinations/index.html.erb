@@ -1,8 +1,10 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   <div class="flex justify-between items-center mb-8">
     <h1 class="text-3xl font-bold text-green-800">Destinations</h1>
-    <%= link_to 'New Destination', new_destination_path, class: "px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700" %>
-  </div>
+    <% if user_signed_in? %>
+      <%= link_to 'New Destination', new_destination_path, class: "px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700" %>
+    <% end %>
+    </div>
 
   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
     <table class="min-w-full divide-y divide-gray-200">
