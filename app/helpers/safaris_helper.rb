@@ -16,4 +16,13 @@ module SafarisHelper
     else 'bg-gray-100 text-gray-800'
     end
   end
+
+   def difficulty_text_color(difficulty)
+    case difficulty.to_s.downcase
+    when 'easy' then 'text-green-600'
+    when 'moderate' then 'text-yellow-600'
+    when 'challenging' then 'text-red-600'
+    else 'text-gray-600'
+    end
+  end
 end

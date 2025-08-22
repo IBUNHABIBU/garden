@@ -65,6 +65,12 @@ class SafarisController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def safari_params
-      params.expect(safari: [ :title, :duration, :difficulty, :overview_title, :overview_description, :main_attractions, :best_season, :price_per_person, :min_people, :max_people, :departure_location, :return_location, :accommodation_type, :transport_type, :included_services, :excluded_services, :what_to_bring, :daily_activities, :wildlife_highlight, :is_featured, :status, :main_image_alt ])
+      params.expect(safari: [
+        :title, :duration, :difficulty, :overview_title, :overview_description,
+        :main_attractions, :best_season, :price_per_person, :min_people, :max_people,
+        :departure_location, :return_location, :accommodation_type, :transport_type,
+        :included_services, :excluded_services, :what_to_bring, :daily_activities,
+        :wildlife_highlight, :is_featured, :status, :main_image_alt,
+        :main_image, gallery_images: []])
     end
 end
