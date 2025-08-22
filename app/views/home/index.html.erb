@@ -21,7 +21,7 @@
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
           <%= link_to "Explore Tours", "#", class: "px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 md:py-4 md:text-lg md:px-10 transition duration-300" %>
-          <%= link_to "View Destinations", "#", class: "px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-700 md:py-4 md:text-lg md:px-10 transition duration-300" %>
+          <%= link_to "View Destinations", '#destinations', class: "px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-700 md:py-4 md:text-lg md:px-10 transition duration-300" %>
         </div>
       </div>
     </div>
@@ -46,13 +46,7 @@
   </div>
 <% end %>
 
-<!-- Featured Tours Section (placeholder for scrolling) -->
-<section id="featured-tours" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-extrabold text-gray-900">Featured Tours</h2>
-    <!-- Tours will go here -->
-  </div>
-</section>
+
 
 
 <!-- Featured Tours Section -->
@@ -162,7 +156,7 @@
 <!-- After Why Choose Us section -->
 
 <!-- Destination Highlights Section -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-white" id="destinations">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -267,8 +261,8 @@
       Join thousands of happy travelers who've explored with us
     </p>
     <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-      <%= link_to "Book Now", travel_tours_path, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-amber-300 hover:bg-amber-400 md:py-4 md:text-lg md:px-10 transition duration-300" %>
-      <%= link_to "Contact Us", root_path, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-600 md:py-4 md:text-lg md:px-10 transition duration-300" %>
+      <%= link_to "Book Now", new_booking_path, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-800 bg-amber-300 hover:bg-amber-400 md:py-4 md:text-lg md:px-10 transition duration-300" %>
+      <%= link_to "Contact Us", pages_contact_path, class: "px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-600 md:py-4 md:text-lg md:px-10 transition duration-300" %>
     </div>
   </div>
 </section>
