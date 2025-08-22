@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_21_130633) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_21_132814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -79,6 +79,33 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_21_130633) do
     t.string "title"
     t.string "subtitle"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "safaris", force: :cascade do |t|
+    t.string "title"
+    t.integer "duration"
+    t.string "difficulty"
+    t.string "overview_title"
+    t.text "overview_description"
+    t.text "main_attractions"
+    t.string "best_season"
+    t.decimal "price_per_person"
+    t.integer "min_people"
+    t.integer "max_people"
+    t.string "departure_location"
+    t.string "return_location"
+    t.string "accommodation_type"
+    t.string "transport_type"
+    t.text "included_services"
+    t.text "excluded_services"
+    t.text "what_to_bring"
+    t.text "daily_activities"
+    t.text "wildlife_highlight"
+    t.boolean "is_featured"
+    t.string "status"
+    t.text "main_image_alt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
