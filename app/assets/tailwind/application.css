@@ -40,3 +40,33 @@ Alternative: gray-100 (#f3f4f6) for slightly darker
 Using gray-800 (#1f2937) - dark neutral
 
 Alternative: gray-900 (#111827) for even darker */
+
+/* Ensure mobile menu appears above other content */
+#mobile-menu {
+  z-index: 50;
+}
+
+/* Smooth transitions for mobile menu */
+#mobile-menu {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Better focus styles for accessibility */
+button:focus {
+  outline: 2px solid #F6BE00; /* Golden yellow */
+  outline-offset: 2px;
+}
+
+/* Hover effects for nav items */
+.hover\:border-amber-300:hover {
+  border-color: #F6BE00;
+}
+
+.hover\:text-gray-100:hover {
+  color: #F5F5F5;
+}
