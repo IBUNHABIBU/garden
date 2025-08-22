@@ -44,6 +44,9 @@ class TrekkingsController < ApplicationController
     end
 
     def trekking_params
-      params.require(:trekking).permit(:title, :duration, :difficulty, :overview_title, :overview_description, :content)
+      params.require(:trekking).permit(
+        :title, :duration, :difficulty, :overview_title, :overview_description,
+        :main_image, gallery_images: []
+      )
     end
 end
