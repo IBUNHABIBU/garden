@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "dashboard/index"
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
   # Devise authentication
   devise_for :users, path: '', path_names: {
     sign_up: 'adminregister',
