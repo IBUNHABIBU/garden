@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "users/index"
+  get "users/update"
+  get "users/destroy"
   devise_for :users
   resources :safaris
   resources :bookings
