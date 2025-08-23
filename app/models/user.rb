@@ -37,6 +37,11 @@ class User < ApplicationRecord
     current_user.admin? && (user? || (admin? && current_user == self))
   end
 
+  # app/models/user.rb
+  def display_name
+    "#{first_name} #{last_name}"
+  end
+
   private
   
   def set_default_role
