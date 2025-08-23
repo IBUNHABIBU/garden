@@ -1,41 +1,35 @@
 Rails.application.routes.draw do
-  get "users/index"
-  get "users/update"
-  get "users/destroy"
-  devise_for :users
+  # Devise authentication
+  devise_for :users, path: '', path_names: {
+    sign_up: 'adminregister',
+    sign_in: 'login',
+    sign_out: 'logout'
+  }
+
+  # User management (only index, update, destroy)
+  resources :users, only: [:index, :update, :destroy]
+
+  # App resources
   resources :safaris
   resources :bookings
   resources :trekkings
-  get "pages/about"
-  get "pages/contact"
   resources :testimonials
   resources :destinations
+  resources :heros
+
   resources :travel_tours do
     member do
       delete 'purge_image/:image_id', to: 'travel_tours#purge_image', as: :purge_image
     end
   end
 
-  resources :heros
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Static pages
+  get "pages/about"
+  get "pages/contact"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :users, only: [:index, :update, :destroy]
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # config/routes.rb
-  devise_for :users, path: '', path_names: {
-    sign_up: 'adminregister',
-  }
-
-
-  # Defines the root path route ("/")
+  # Root path
   root "home#index"
 end
