@@ -58,7 +58,12 @@
 
     <!-- Admin Links -->
     <div class="bg-gray-50 px-6 py-4 flex justify-between items-center">
+      <% if user_signed_in? %>
       <%= link_to 'Edit', edit_trekking_path(@trekking), class: "text-golden-yellow hover:text-yellow-600" %>
+      <%= button_to "Delete", @trekking, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+
+     
+      <% end %>
       <%= link_to 'Back', trekkings_path, class: "text-charcoal hover:text-gray-600" %>
     </div>
   </div>
