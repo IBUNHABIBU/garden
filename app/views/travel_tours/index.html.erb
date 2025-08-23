@@ -10,11 +10,13 @@
   <!-- Header -->
   <div class="flex flex-col sm:flex-row justify-between items-center mb-8">
     <h1 class="font-bold text-3xl md:text-4xl text-green-800 mb-4 sm:mb-0">Travel Tours</h1>
+    <% if user_signed_in? %>
     <%= link_to new_travel_tour_path, class: "rounded-lg px-6 py-3 bg-green-800 hover:bg-green-700 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center" do %>
       <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
       </svg>
        New travel tour
+   <% end %>
    <% end %>
 
   </div>
