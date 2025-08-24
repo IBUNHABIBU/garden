@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_23_165844) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_24_043913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -106,6 +106,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_23_165844) do
     t.boolean "is_featured"
     t.string "status"
     t.text "main_image_alt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "team_members", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.text "bio"
+    t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
