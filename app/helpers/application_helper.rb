@@ -68,15 +68,19 @@ module ApplicationHelper
   end
 
   def role_badge_color(role)
-  case role
-  when 'super_admin'
-    'bg-purple-100 text-purple-800'
-  when 'admin'
-    'bg-blue-100 text-blue-800'
-  when 'user'
-    'bg-gray-100 text-gray-800'
-  else
-    'bg-gray-100 text-gray-800'
+    case role
+    when 'super_admin'
+      'bg-purple-100 text-purple-800'
+    when 'admin'
+      'bg-blue-100 text-blue-800'
+    when 'user'
+      'bg-gray-100 text-gray-800'
+    else
+      'bg-gray-100 text-gray-800'
+    end
   end
-end
+
+  def admin_user?
+    user_signed_in? && (current_user.admin? || current_user.super_admin?)
+  end
 end
