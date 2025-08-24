@@ -2,12 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  # config/environments/production.rb
-  config.hosts << "kilimarvellous.com"
-  config.hosts << "www.kilimarvellous.com"
-
-# Or allow all hosts (less secure)
-# config.hosts.clear
+  
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
