@@ -52,11 +52,15 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <% @team_members.each do |member| %>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <%= image_tag member[:photo], class: "w-full h-64 object-cover", alt: member[:name] %>
+          <% if member.photo.attached? %>
+            <%= image_tag url_for(member.photo), class: "w-full h-64 object-cover", alt: member.name %>
+          <% else %>
+            <%= image_tag "mavelogo.jpeg", class: "w-full h-64 object-cover", alt: member.name %>
+          <% end %>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900"><%= member[:name] %></h3>
-            <p class="text-amber-600"><%= member[:title] %></p>
-            <p class="mt-2 text-gray-600"><%= member[:bio ]%></p>
+            <h3 class="text-xl font-bold text-gray-900"><%= member.name %></h3>
+            <p class="text-amber-600"><%= member.title %></p>
+            <p class="mt-2 text-gray-600"><%= member.bio  %></p>
           </div>
         </div>
       <% end %>

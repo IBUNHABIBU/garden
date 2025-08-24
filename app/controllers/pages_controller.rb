@@ -1,15 +1,7 @@
 # app/controllers/pages_controller.rb
 class PagesController < ApplicationController
   def about
-    @team_members = [
-      {
-        name: "Alex Johnson",
-        title: "Founder & Chief Explorer",
-        bio: "20+ years guiding adventures across 6 continents",
-        photo: "mavelogo.jpeg"
-      },
-      # ... more team members
-    ]
+    @team_members = TeamMember.all
 
     @values = [
       {
