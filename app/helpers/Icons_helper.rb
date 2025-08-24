@@ -45,7 +45,7 @@ module IconsHelper
 
    def value_icon(icon_name, classes = "")
       icon_map = {
-        sustainability: heroicon("leaf", variant: :solid, options: { class: classes }),
+        sustainability: heroicon("globe-alt", variant: :solid, options: { class: classes }),
         authenticity:   heroicon("check-badge", variant: :solid, options: { class: classes }),
         shield_check:   heroicon("shield-check", variant: :solid, options: { class: classes }),
         users:          heroicon("users", variant: :solid, options: { class: classes }),

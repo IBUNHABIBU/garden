@@ -8,7 +8,47 @@
       Crafting unforgettable journeys since 2010
     </p>
   </div>
-  <%= image_tag "mavelogo.jpeg", class: "w-full h-64 object-cover", alt: "Team hiking in mountains" %>
+  <%= image_tag "lions2.jpg", class: "w-full h-64 object-cover", alt: "Team hiking in mountains" %>
+</section>
+
+<!-- Vision Section -->
+<section class="py-16 bg-amber-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+      <div>
+        <div class="border-b-2 border-amber-400 w-20 mb-6"></div>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+          Our Vision
+        </h2>
+        <p class="text-lg text-gray-700">
+          To create a world where travel is a transformative force for good—connecting people across cultures, preserving natural wonders, and empowering local communities to thrive through sustainable tourism.
+        </p>
+      </div>
+      <div class="mt-8 lg:mt-0">
+        <%= image_tag "tembo.jpg", class: "rounded-lg shadow-xl", alt: "Inspiring travel vision" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <%= image_tag "twigasingle.jpg", class: "rounded-lg shadow-xl", alt: "Our mission in action" %>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="border-b-2 border-green-600 w-20 mb-6"></div>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+          Our Mission
+        </h2>
+        <p class="text-lg text-gray-700">
+          To craft authentic, immersive travel experiences that respect local cultures and ecosystems while providing meaningful economic opportunities for communities. We're dedicated to showing travelers the heart and soul of each destination through carefully curated adventures that leave positive impacts.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="py-16 bg-white">
@@ -55,12 +95,12 @@
           <% if member.photo.attached? %>
             <%= image_tag url_for(member.photo), class: "w-full h-64 object-cover", alt: member.name %>
           <% else %>
-            <%= image_tag "mavelogo.jpeg", class: "w-full h-64 object-cover", alt: member.name %>
+            <%= image_tag "mavelogo.png", class: "w-full h-64 object-cover", alt: member.name %>
           <% end %>
           <div class="p-6">
             <h3 class="text-xl font-bold text-gray-900"><%= member.name %></h3>
             <p class="text-amber-600"><%= member.title %></p>
-            <p class="mt-2 text-gray-600"><%= member.bio  %></p>
+            <p class="mt-2 text-gray-600"><%= member.bio %></p>
           </div>
         </div>
       <% end %>
@@ -68,8 +108,6 @@
   </div>
 </section>
 
-
-<!-- app/views/pages/about.html.erb -->
 <section class="py-16 bg-amber-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">
@@ -97,12 +135,12 @@
           Responsible Tourism
         </h2>
         <p class="text-lg text-green-100">
-          We're committed to protecting the places we love. For every booking, we donate 5% to local conservation efforts.
+          We're committed to protecting the places we love. We promote travel that respects local cultures, supports communities, and preserves natural environments for future generations.
         </p>
-        <%= link_to "Our Sustainability Report", root_path, class: "mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-green-800 bg-amber-300 hover:bg-amber-400" %>
+        <%= link_to "Learn more", root_path, class: "mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-green-800 bg-amber-300 hover:bg-amber-400" %>
       </div>
       <div class="mt-12 lg:mt-0">
-        <%= image_tag "mavelogo.jpeg", class: "rounded-lg shadow-xl", alt: "Conservation project" %>
+        <%= image_tag "comunity.jpg", class: "rounded-lg shadow-xl", alt: "Conservation project" %>
       </div>
     </div>
   </div>
