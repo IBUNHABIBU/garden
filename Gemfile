@@ -68,3 +68,4 @@ gem "devise", "~> 4.9"
 
 
 gem "heroicon", "~> 1.0"
+gem 'heroicons'

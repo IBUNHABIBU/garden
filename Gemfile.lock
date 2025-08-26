@@ -132,6 +132,9 @@ GEM
       activesupport (>= 6.1)
     heroicon (1.0.0)
       rails (>= 5.2)
+    heroicons (2.2.0)
+      nokogiri
+      railties (>= 5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     image_processing (1.14.0)
@@ -416,6 +419,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   heroicon (~> 1.0)
+  heroicons
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
