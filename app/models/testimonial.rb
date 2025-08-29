@@ -1,4 +1,8 @@
 class Testimonial < ApplicationRecord
+  extend FriendlyId
+  
+  friendly_id :author_name, use: [:slugged, :history, :finders]
+  
   has_one_attached :avatar
 
   validates :author_name, presence: true
@@ -8,6 +12,7 @@ class Testimonial < ApplicationRecord
                                      greater_than_or_equal_to: 1, 
                                      less_than_or_equal_to: 5 }
 
+                                     
   def star_rating
     '★' * rating + '☆' * (5 - rating)
   end

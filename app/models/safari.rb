@@ -1,4 +1,8 @@
 class Safari < ApplicationRecord
+  extend FriendlyId
+  
+  friendly_id :title, use: [:slugged, :history, :finders]
+  
   # Active Storage attachments
   has_one_attached :main_image
   has_many_attached :gallery_images
@@ -17,6 +21,10 @@ class Safari < ApplicationRecord
   # Image validations
   validate :acceptable_main_image
   validate :acceptable_gallery_images
+
+  def should_generate_new_friendly_id?
+    title_changed? || super
+  end
   
   private
   
