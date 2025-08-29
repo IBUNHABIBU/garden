@@ -1,5 +1,6 @@
 class TravelTour < ApplicationRecord
   extend FriendlyId
+  friendly_id :name, use: [:slugged, :history, :finders]
   
   has_one_attached :image
   has_many_attached :gallery_images
