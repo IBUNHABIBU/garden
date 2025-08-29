@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_29_040311) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_29_040809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -119,6 +119,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_29_040311) do
     t.text "main_image_alt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_safaris_on_slug", unique: true
   end
 
   create_table "team_members", force: :cascade do |t|
@@ -137,6 +139,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_29_040311) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_testimonials_on_slug", unique: true
   end
 
   create_table "travel_tours", force: :cascade do |t|
@@ -162,6 +166,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_29_040311) do
     t.text "overview_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_trekkings_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
