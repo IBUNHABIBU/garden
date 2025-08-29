@@ -12,7 +12,11 @@ class Testimonial < ApplicationRecord
                                      greater_than_or_equal_to: 1, 
                                      less_than_or_equal_to: 5 }
 
-                                     
+                                      
+  def should_generate_new_friendly_id?
+    author_name_changed? || super
+  end
+  
   def star_rating
     '★' * rating + '☆' * (5 - rating)
   end
