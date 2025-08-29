@@ -31,6 +31,11 @@ class TravelToursController < ApplicationController
   def create
     @travel_tour = TravelTour.new(travel_tour_params)
 
+      puts "DEBUG: Tour params: #{travel_tour_params}"
+      puts "DEBUG: Tour valid? #{@travel_tour.valid?}"
+      puts "DEBUG: Tour errors: #{@travel_tour.errors.full_messages}" unless @travel_tour.valid?
+
+
     respond_to do |format|
       if @travel_tour.save
         format.html { redirect_to @travel_tour, notice: "Travel tour was successfully created." }
@@ -68,11 +73,11 @@ class TravelToursController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_travel_tour
-      @travel_tour = TravelTour.friendly.find(params.expect(:id))
+      @travel_tour = TravelTour.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def travel_tour_params
-      params.expect(travel_tour: [ :name, :description, :price, :duration, :category, :featured, :highlights, :includes, :image, gallery_images: [ ]])
+      params.require(:travel_tour).permit(:name, :description, :price, :duration, :category, :featured, :highlights, :includes, :image, gallery_images: [ ])
     end
 end
