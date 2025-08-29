@@ -4,7 +4,7 @@ FactoryBot.define do
     category { "Adventure" }
     duration { 5 }
     price { 499.99 }
-    description { "An amazing tour description" }
+    description { "An amazing tour description An amazing tour description An amazing tour description An amazing tour description" }
     featured { false }
     highlights { "Highlight 1\nHighlight 2" }
     includes { "Inclusion 1\nInclusion 2" }
