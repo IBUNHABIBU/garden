@@ -12,7 +12,7 @@ RSpec.describe TravelTour, type: :model do
     # it 'validates category inclusion' do
     #   expect(subject).to validate_inclusion_of(:category)
     #     .in_array(TravelTour::CATEGORIES)
-    end
+    # end
   end
 
   # describe 'file attachments' do
