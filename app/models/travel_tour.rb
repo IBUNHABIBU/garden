@@ -15,6 +15,7 @@ class TravelTour < ApplicationRecord
 
   scope :featured, -> { where(featured: true) }
 
-  friendly_id :name, use: [:slugged, :history, :finders]
-  
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 end

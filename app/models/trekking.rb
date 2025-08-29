@@ -1,4 +1,5 @@
 class Trekking < ApplicationRecord
+  extend FriendlyId
   has_rich_text :content
   has_one_attached :main_image
   has_many_attached :gallery_images
@@ -13,6 +14,10 @@ class Trekking < ApplicationRecord
   # Image validations
   validate :acceptable_main_image
   validate :acceptable_gallery_images
+
+  def should_generate_new_friendly_id?
+    title_changed? || super
+  end
   
   private
   
