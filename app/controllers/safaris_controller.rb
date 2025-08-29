@@ -60,7 +60,7 @@ class SafarisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_safari
-      @safari = Safari.find(params.expect(:id))
+      @safari = Safari.friendly.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

@@ -68,7 +68,7 @@ class TravelToursController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_travel_tour
-      @travel_tour = TravelTour.find(params.expect(:id))
+      @travel_tour = TravelTour.friendly.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

@@ -40,7 +40,7 @@ class TrekkingsController < ApplicationController
 
   private
     def set_trekking
-      @trekking = Trekking.find(params[:id])
+      @trekking = Trekking.friendly.find(params[:id])
     end
 
     def trekking_params
