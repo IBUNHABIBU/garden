@@ -1,5 +1,7 @@
 class Trekking < ApplicationRecord
   extend FriendlyId
+  friendly_id :title, use: [:slugged, :history, :finders]
+  
   has_rich_text :content
   has_one_attached :main_image
   has_many_attached :gallery_images
