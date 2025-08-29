@@ -1,4 +1,6 @@
 class TravelTour < ApplicationRecord
+  extend FriendlyId
+  
   has_one_attached :image
   has_many_attached :gallery_images
 
@@ -12,4 +14,7 @@ class TravelTour < ApplicationRecord
   CATEGORIES = ['Adventure', 'Cultural', 'Wildlife', 'Beach', 'Hiking', 'Luxury'].freeze
 
   scope :featured, -> { where(featured: true) }
+
+  friendly_id :name, use: [:slugged, :history, :finders]
+  
 end
