@@ -12,12 +12,15 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :update, :destroy]
 
   # App resources
-  resources :safaris
   resources :bookings
-  resources :trekkings
-  resources :testimonials
   resources :destinations
   resources :heros
+
+  # SEO-friendly routes
+  resources :travel_tours, path: 'tours'
+  resources :trekkings, path: 'treks' 
+  resources :safaris, path: 'wildlife-safaris'
+  resources :testimonials, path: 'reviews'
 
   resources :travel_tours do
     member do
