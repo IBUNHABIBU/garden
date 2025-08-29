@@ -69,3 +69,5 @@ gem "devise", "~> 4.9"
 
 gem "heroicon", "~> 1.0"
 gem 'heroicons'
+# Gemfile
+gem 'friendly_id', '~> 5.4'
