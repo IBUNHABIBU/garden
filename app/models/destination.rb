@@ -1,4 +1,7 @@
 class Destination < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history, :finders]
+
   has_one_attached :image
 
   validates :name, presence: true
@@ -7,8 +10,13 @@ class Destination < ApplicationRecord
 
   scope :featured, -> { where(featured: true) }
 
+
   # Ensure at least 3 destinations remain featured
   before_update :prevent_removing_featured_if_minimum_not_met
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 
   private
 
