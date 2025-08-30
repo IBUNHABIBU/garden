@@ -118,24 +118,24 @@ RSpec.describe 'Travel Tours Form', type: :feature do
     end
   end
 
-  # describe 'checkbox functionality' do
-  #   it 'toggles featured checkbox' do
-  #     checkbox = find_field('Featured Tour')
-  #     expect(checkbox).not_to be_checked
+  describe 'checkbox functionality' do
+    it 'toggles featured checkbox' do
+      checkbox = find_field('Featured Tour')
+      expect(checkbox).not_to be_checked
 
-  #     check 'Featured Tour'
-  #     expect(checkbox).to be_checked
+      check 'Featured Tour'
+      expect(checkbox).to be_checked
 
-  #     uncheck 'Featured Tour'
-  #     expect(checkbox).not_to be_checked
-  #   end
-  # end
+      uncheck 'Featured Tour'
+      expect(checkbox).not_to be_checked
+    end
+  end
 
-  # describe 'navigation' do
-  #   it 'cancels and returns to index page' do
-  #     click_link 'Cancel'
-  #     expect(current_path).to eq(travel_tours_path)
-  #   end
+  describe 'navigation' do
+    it 'cancels and returns to index page' do
+      click_link 'Cancel'
+      expect(current_path).to eq(travel_tours_path)
+    end
   # end
 
   # describe 'price field formatting' do
