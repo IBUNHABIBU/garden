@@ -100,22 +100,22 @@ RSpec.describe 'Travel Tours Form', type: :feature do
   #   end
   # end
 
-  # describe 'file uploads' do
-  #   it 'allows main image upload' do
-  #     attach_file('Main Tour Image', Rails.root.join('spec/fixtures/files/sample_image.jpg'))
+  describe 'file uploads' do
+    it 'allows main image upload' do
+      attach_file('Main Tour Image', Rails.root.join('spec/fixtures/files/sample_image.jpg'))
       
-  #     expect(page).to have_content('Image selected (will upload on save)')
-  #   end
+      expect(page).to have_content('Image selected (will upload on save)')
+    end
 
-  #   it 'allows multiple gallery image uploads' do
-  #     attach_file('Gallery Images', [
-  #       Rails.root.join('spec/fixtures/files/image1.jpg'),
-  #       Rails.root.join('spec/fixtures/files/image2.jpg')
-  #     ])
+    it 'allows multiple gallery image uploads' do
+      attach_file('Gallery Images', [
+        Rails.root.join('spec/fixtures/files/image1.jpg'),
+        Rails.root.join('spec/fixtures/files/image2.jpg')
+      ])
 
-  #     # You might need custom JavaScript handling for multiple file display
-  #   end
-  # end
+      # You might need custom JavaScript handling for multiple file display
+    end
+  end
 
   # describe 'checkbox functionality' do
   #   it 'toggles featured checkbox' do
