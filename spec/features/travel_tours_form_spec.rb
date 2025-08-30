@@ -22,7 +22,7 @@ RSpec.describe 'Travel Tours Form', type: :feature do
       expect(page).to have_field("What's Included (one per line)")
       expect(page).to have_field('Main Tour Image')
       expect(page).to have_field('Gallery Images')
-      expect(page).to have_button('Save')
+      expect(page).to have_button('Create Travel tour')
       expect(page).to have_link('Cancel')
     end
 
