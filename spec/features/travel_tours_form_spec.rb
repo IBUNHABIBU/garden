@@ -26,11 +26,11 @@ RSpec.describe 'Travel Tours Form', type: :feature do
       expect(page).to have_link('Cancel')
     end
 
-    # it 'applies correct CSS classes' do
-    #   expect(page).to have_css('form.space-y-6')
-    #   expect(page).to have_css('input[name="travel_tour[name]"]')
-    #   expect(page).to have_css('select[name="travel_tour[category]"]')
-    # end
+    it 'applies correct CSS classes' do
+      expect(page).to have_css('form.space-y-6')
+      expect(page).to have_css('input[name="travel_tour[name]"]')
+      expect(page).to have_css('select[name="travel_tour[category]"]')
+    end
   end
 
   # describe 'creating a new tour' do
