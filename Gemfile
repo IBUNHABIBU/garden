@@ -75,3 +75,6 @@ gem "heroicon", "~> 1.0"
 gem 'heroicons'
 # Gemfile
 gem 'friendly_id', '~> 5.4'
+
+# Ggem 'sitemap_generator'
+gem 'sitemap_generator'
