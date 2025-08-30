@@ -64,13 +64,13 @@ RSpec.describe 'Travel Tours Form', type: :feature do
         expect(page).to have_content("Name can't be blank")
       end
 
-      # it 'maintains filled form values after error' do
-      #   fill_in 'Name', with: '' # Invalid
-      #   fill_in 'Description', with: 'Test description' # Valid
-      #   click_button 'Save'
+      it 'maintains filled form values after error' do
+        fill_in 'Name', with: '' # Invalid
+        fill_in 'Description', with: 'Test description' # Valid
+        click_button 'Create Travel tour'
 
-      #   expect(page).to have_field('Description', with: 'Test description')
-      # end
+        expect(page).to have_field('Description', with: 'Test description')
+      end
     end
   end
 
