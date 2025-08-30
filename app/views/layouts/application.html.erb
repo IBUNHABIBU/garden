@@ -4,9 +4,20 @@
     <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Best Tanzania Safari Company in Arusha. Kilimanjaro marvelous Tours offers Serengeti Safaris, Kilimanjaro Treks & Ngorongoro Crater Tours. Custom Packages & Best Prices. Book Now!">
+    <meta name="robots" content="index, follow">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+
+    # Open Graph / Social Media Tags
+    <meta property="og:title" content="<%= yield(:title) || 'Kilimanjaro Marvelous Tours' %>">
+    <meta property="og:description" content="<%= yield(:description) || 'Best Tanzania Safari Company...' %>">
+    <meta property="og:image" content="<%= image_url('mavelogo.png') %>">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:type" content="website">
+
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag 'kilimave.ico' %>

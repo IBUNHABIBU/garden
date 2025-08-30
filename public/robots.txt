@@ -1,1 +1,6 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# Allow all search engines to crawl your site
+User-agent: *
+Disallow:
+
+# Link to your sitemap
+Sitemap: https://kilimarvellous.com/sitemap.xml
