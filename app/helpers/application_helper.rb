@@ -83,4 +83,13 @@ module ApplicationHelper
   def admin_user?
     user_signed_in? && (current_user.admin? || current_user.super_admin?)
   end
+
+  def full_title(page_title = '')
+  base_title = "Kilimarvelous Tour Company"
+  if page_title.empty?
+    base_title
+  else
+    "#{page_title} | #{base_title}"
+  end
+  end
 end
