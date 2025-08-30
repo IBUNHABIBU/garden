@@ -33,25 +33,26 @@ RSpec.describe 'Travel Tours Form', type: :feature do
     end
   end
 
-  # describe 'creating a new tour' do
-  #   context 'with valid attributes' do
-  #     it 'creates a new tour' do
-  #       fill_in 'Name', with: 'Amazon Adventure'
-  #       select 'Adventure', from: 'Category'
-  #       fill_in 'Duration (days)', with: 7
-  #       fill_in 'Price', with: 999.99
-  #       fill_in 'Description', with: 'An amazing adventure tour'
-  #       fill_in 'Tour Highlights (one per line)', with: "Jungle trekking\nWildlife spotting"
-  #       fill_in "What's Included (one per line)", with: "Accommodation\nMeals"
+  describe 'creating a new tour' do
+    context 'with valid attributes' do
+      it 'creates a new tour' do
+        fill_in 'Name', with: 'Amazon Adventure'
+        select 'Adventure', from: 'Category'
+        fill_in 'Duration (days)', with: 7
+        fill_in 'Price', with: 999.99
+        fill_in 'Description', with: 'An amazing adventure tour An amazing adventure tour through the Amazon rainforest with expert guides, wildlife spotting, and unforgettable cultural experiences.'
+        fill_in 'Tour Highlights (one per line)', with: "Jungle trekking\nWildlife spotting"
+        fill_in "What's Included (one per line)", with: "Accommodation\nMeals"
 
-  #       expect do
-  #         click_button 'Save'
-  #       end.to change(TravelTour, :count).by(1)
+        expect do
+          click_button 'Create Travel tour'
+          save_and_open_page
+        end.to change(TravelTour, :count).by(1)
 
-  #       expect(page).to have_content('Tour was successfully created')
-  #       expect(TravelTour.last.name).to eq('Amazon Adventure')
-  #     end
-  #   end
+        expect(page).to have_content('Tour was successfully created')
+        expect(TravelTour.last.name).to eq('Amazon Adventure')
+      end
+    end
 
   #   context 'with invalid attributes' do
   #     it 'displays error messages' do
@@ -71,7 +72,7 @@ RSpec.describe 'Travel Tours Form', type: :feature do
   #       expect(page).to have_field('Description', with: 'Test description')
   #     end
   #   end
-  # end
+  end
 
   # describe 'editing an existing tour' do
   #   before do
