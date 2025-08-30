@@ -49,29 +49,29 @@ RSpec.describe 'Travel Tours Form', type: :feature do
           save_and_open_page
         end.to change(TravelTour, :count).by(1)
 
-        expect(page).to have_content('Tour was successfully created')
+        expect(page).to have_content('Travel tour was successfully created.')
         expect(TravelTour.last.name).to eq('Amazon Adventure')
       end
     end
 
-  #   context 'with invalid attributes' do
-  #     it 'displays error messages' do
-  #       fill_in 'Name', with: ''
-  #       click_button 'Save'
+    context 'with invalid attributes' do
+      it 'displays error messages' do
+        fill_in 'Name', with: ''
+        click_button 'Create Travel tour'
 
-  #       expect(page).to have_css('#error_explanation')
-  #       expect(page).to have_content('error prohibited this tour from being saved')
-  #       expect(page).to have_content("Name can't be blank")
-  #     end
+        expect(page).to have_css('#error_explanation')
+        expect(page).to have_content('error prohibited this tour from being saved')
+        expect(page).to have_content("Name can't be blank")
+      end
 
-  #     it 'maintains filled form values after error' do
-  #       fill_in 'Name', with: '' # Invalid
-  #       fill_in 'Description', with: 'Test description' # Valid
-  #       click_button 'Save'
+      # it 'maintains filled form values after error' do
+      #   fill_in 'Name', with: '' # Invalid
+      #   fill_in 'Description', with: 'Test description' # Valid
+      #   click_button 'Save'
 
-  #       expect(page).to have_field('Description', with: 'Test description')
-  #     end
-  #   end
+      #   expect(page).to have_field('Description', with: 'Test description')
+      # end
+    end
   end
 
   # describe 'editing an existing tour' do
