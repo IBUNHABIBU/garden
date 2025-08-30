@@ -155,10 +155,14 @@ RSpec.describe 'Travel Tours Form', type: :feature do
     it 'handles multi-line input for highlights' do
       highlights = "First highlight\nSecond highlight\nThird highlight"
       fill_in 'Tour Highlights (one per line)', with: highlights
-      
+
       # Verify the value is maintained if form submission fails
       click_button 'Create Travel tour'
-      expect(page).to have_field('Tour Highlights (one per line)', with: highlights)
+
+      field_value = find_field('Tour Highlights (one per line)').value
+      # Normalize line endings to \n
+      expect(field_value.gsub(/\r\n?/, "\n")).to eq(highlights)
     end
   end
+
 end
