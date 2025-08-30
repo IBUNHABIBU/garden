@@ -104,7 +104,8 @@ RSpec.describe 'Travel Tours Form', type: :feature do
     it 'allows main image upload' do
       attach_file('Main Tour Image', Rails.root.join('spec/fixtures/files/transport.jpg'))
       
-      expect(page).to have_content('Image selected (will upload on save)')
+      travel_tour = TravelTour.last
+      expect(travel_tour.image).to be_attached
     end
 
     it 'allows multiple gallery image uploads' do
