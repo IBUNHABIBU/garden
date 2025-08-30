@@ -46,7 +46,6 @@ RSpec.describe 'Travel Tours Form', type: :feature do
 
         expect do
           click_button 'Create Travel tour'
-          save_and_open_page
         end.to change(TravelTour, :count).by(1)
 
         expect(page).to have_content('Travel tour was successfully created.')
@@ -60,7 +59,7 @@ RSpec.describe 'Travel Tours Form', type: :feature do
         click_button 'Create Travel tour'
 
         expect(page).to have_css('#error_explanation')
-        expect(page).to have_content('prohibited this tour from being saved')
+        expect(page).to have_content('prohibited this tour from being Create Travel tour')
         expect(page).to have_content("Name can't be blank")
       end
 
@@ -136,30 +135,30 @@ RSpec.describe 'Travel Tours Form', type: :feature do
       click_link 'Cancel'
       expect(current_path).to eq(travel_tours_path)
     end
-  # end
+  end
 
-  # describe 'price field formatting' do
-  #   it 'displays dollar sign prefix' do
-  #     price_field = find_field('Price')
-  #     expect(page).to have_css('.absolute.inset-y-0.left-0', text: '$')
-  #   end
+  describe 'price field formatting' do
+    it 'displays dollar sign prefix' do
+      price_field = find_field('Price')
+      expect(page).to have_css('.absolute.inset-y-0.left-0', text: '$')
+    end
 
-  #   it 'accepts decimal values' do
-  #     fill_in 'Price', with: '299.99'
-  #     click_button 'Save'
+    it 'accepts decimal values' do
+      fill_in 'Price', with: '299.99'
+      click_button 'Create Travel tour'
       
-  #     # Add expectation based on your application behavior
-  #   end
-  # end
+      # Add expectation based on your application behavior
+    end
+  end
 
-  # describe 'text areas' do
-  #   it 'handles multi-line input for highlights' do
-  #     highlights = "First highlight\nSecond highlight\nThird highlight"
-  #     fill_in 'Tour Highlights (one per line)', with: highlights
+  describe 'text areas' do
+    it 'handles multi-line input for highlights' do
+      highlights = "First highlight\nSecond highlight\nThird highlight"
+      fill_in 'Tour Highlights (one per line)', with: highlights
       
-  #     # Verify the value is maintained if form submission fails
-  #     click_button 'Save'
-  #     expect(page).to have_field('Tour Highlights (one per line)', with: highlights)
-  #   end
-  # end
+      # Verify the value is maintained if form submission fails
+      click_button 'Create Travel tour'
+      expect(page).to have_field('Tour Highlights (one per line)', with: highlights)
+    end
+  end
 end
