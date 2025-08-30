@@ -59,7 +59,8 @@ RSpec.describe 'Travel Tours Form', type: :feature do
         click_button 'Create Travel tour'
 
         expect(page).to have_css('#error_explanation')
-        expect(page).to have_content('prohibited this travel tour from being saved')
+        expect(page).to have_content('prohibited this tour from being saved')
+
         expect(page).to have_content("Name can't be blank")
       end
 
