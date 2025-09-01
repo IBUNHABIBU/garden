@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin_access
-    unless current_user.admin? || current_user.super_admin?
-      redirect_to root_path, alert: "You are not authorized to access the dashboard."
+    unless current_user && (current_user.admin? || current_user.super_admin?)
+      redirect_to root_path, alert: "You are not authorized to access this page."
     end
   end
 end
