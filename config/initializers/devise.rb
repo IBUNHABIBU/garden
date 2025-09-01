@@ -312,10 +312,10 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   # config/initializers/devise.rb
-config.mailer_sender = 'your-email@example.com' # Use your actual email
+  config.mailer_sender = 'ibunhabib@gmail.com' # Use your actual email
 
-# Enable confirmable
-config.allow_unconfirmed_access_for = 0.days # How long to wait before requiring confirmation
-config.confirm_within = 3.days # Time before confirmation token expires
-config.reconfirmable = true # Require email reconfirmation when email is changed
+  # Enable confirmable
+  config.allow_unconfirmed_access_for = 0.days # How long to wait before requiring confirmation
+  config.confirm_within = 3.days # Time before confirmation token expires
+  config.reconfirmable = true # Require email reconfirmation when email is changed
 end
