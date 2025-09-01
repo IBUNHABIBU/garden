@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+  attribute :status, :string, default: 'pending'
   validates :full_name, :email, :phone, :trek_name, :start_date, :end_date, :number_of_people, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :number_of_people, numericality: { only_integer: true, greater_than: 0 }
