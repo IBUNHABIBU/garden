@@ -72,6 +72,7 @@ end
 
 gem "devise", "~> 4.9"
 
+gem 'mail'
 
 gem "heroicon", "~> 1.0"
 gem 'heroicons'
