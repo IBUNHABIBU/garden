@@ -33,7 +33,7 @@
           <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, 
                       class: "text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
         <% end %>
-        <% if user_signed_in? && (current_user.admin? || current_user.super_admin?) %>
+        <% if admin_user? %>
         
           <%= link_to "Bookings", bookings_path, class: "text-white hover:text-golden-yellow  py-2 rounded-md text-sm font-medium" %>
     
