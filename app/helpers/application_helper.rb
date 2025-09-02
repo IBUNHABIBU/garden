@@ -85,7 +85,7 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = "Kilimarvelous Tour Company"
+    base_title = "Kilimarvelous Safari"
     if page_title.empty?
       base_title
     else
