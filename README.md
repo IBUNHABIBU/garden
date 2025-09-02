@@ -1,24 +1,12 @@
-# README
+<title><%= full_title(yield(:title)) %></title>
+    <meta name="description" content="Best Tanzania Safari Company in Arusha. Kilimanjaro marvellous Safari offers Serengeti Safaris, Kilimanjaro Treks & Ngorongoro Crater Tours. Custom Packages & Best Prices. Book Now!">
+ 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ def full_title(page_title = '')
+    base_title = "Kilimarvelous Tour Company"
+    if page_title.empty?
+      base_title
+    else
+      "#{page_title} | #{base_title}"
+    end
+end
