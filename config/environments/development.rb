@@ -4,15 +4,19 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
     # config/environments/development.rb
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-
-# For testing in development, you can use letter_opener gem
-# Add to Gemfile: gem 'letter_opener'
-# And add this config:
-config.action_mailer.delivery_method = :letter_opener
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "gmail.com",
+  user_name: "ibunhabib@gmail.com",
+  password: "Greaterthan100",
+  authentication: "plain",
+  enable_starttls_auto: true
+}
+
 
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
