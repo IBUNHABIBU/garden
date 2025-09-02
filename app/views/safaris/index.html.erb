@@ -7,11 +7,14 @@
       <h1 class="text-3xl font-bold text-deep-green">Wildlife Safaris</h1>
       <p class="text-charcoal mt-2">Manage all safari packages and adventures</p>
     </div>
-    <%= link_to new_safari_path, class: "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-golden-yellow mt-4 sm:mt-0" do %>
-      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-      </svg>
-      New Safari
+
+    <% if admin_user? %>
+      <%= link_to new_safari_path, class: "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-golden-yellow mt-4 sm:mt-0" do %>
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+        New Safari
+      <% end %>
     <% end %>
   </div>
 
@@ -103,7 +106,7 @@
           <!-- Action Buttons -->
           <div class="flex space-x-3">
             <%= link_to 'View', safari, class: "flex-1 text-center bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors text-sm font-medium" %>
-            <%= link_to 'Edit', edit_safari_path(safari), class: "flex-1 text-center border border-green-900 text-deep-green px-4 py-2 rounded-md hover:bg-green-900 hover:text-white transition-colors text-sm font-medium" %>
+            <%= link_to 'Edit', edit_safari_path(safari), class: "flex-1 text-center border border-green-900 text-deep-green px-4 py-2 rounded-md hover:bg-green-900 hover:text-white transition-colors text-sm font-medium" if admin_user? %>
           </div>
         </div>
       </div>
