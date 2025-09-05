@@ -40,6 +40,15 @@ env:
   clear:
     DB_HOST: tour-db
 
+  secret:
+    - RAILS_MASTER_KEY
+    - POSTGRES_PASSWORD
+    - POSTGRES_USER
+    - GOOGLE_API
+    - PIXABAY
+    - OPEN_WEATHER
+
+  clear:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
     SOLID_QUEUE_IN_PUMA: true
@@ -50,15 +59,9 @@ env:
     # Set number of cores available to the application on each server (default: 1).
     # WEB_CONCURRENCY: 2
 
-    # Match this to an
-  secret:
-    - RAILS_MASTER_KEY
-    - POSTGRES_PASSWORD
-    - POSTGRES_USER
-    - GOOGLE_API
-    - PIXABAY
-    - OPEN_WEATHER
-
+    # Match this to any external database server to configure Active Record correctly
+    # Use tour-db for a db accessory server on same machine via local kamal docker network.
+    DB_HOST: 45.92.9.7
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
@@ -105,7 +108,7 @@ accessories:
   db:
     image: postgres:16
     host: 45.92.9.7
-    port: "5434:5432"  # Ensure this is the correct port or change it to 5432 if needed
+    # port: "127.0.0.1"  # Ensure this is the correct port or change it to 5432 if needed
     env:
       clear:
         POSTGRES_USER: "postgres"
