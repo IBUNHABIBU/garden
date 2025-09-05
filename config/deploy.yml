@@ -23,6 +23,7 @@ proxy:
   ssl: true
   host: kilimarvellous.com
   app_port: 3000
+  port: "127.0.0.1:3306:3306"
 
 # Credentials for your image host.
 registry:
