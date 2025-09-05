@@ -23,7 +23,6 @@ proxy:
   ssl: true
   host: kilimarvellous.com
   app_port: 3000
-  port: "127.0.0.1:3306:3306"
 
 # Credentials for your image host.
 registry:
@@ -93,6 +92,8 @@ accessories:
     image: postgres:16
     host: 45.92.9.7
     # port: "127.0.0.1"  # Ensure this is the correct port or change it to 5432 if needed
+    port: "127.0.0.1:3306:3306"
+    # port: "127.0.0.1:5436:5436"
     env:
       clear:
         POSTGRES_USER: "postgres"
