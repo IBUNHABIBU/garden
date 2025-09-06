@@ -1,9 +1,12 @@
 <title><%= full_title(yield(:title)) %></title>
-    <meta name="description" content="Best Tanzania Safari Company in Arusha. Kilimanjaro marvellous Safari offers Serengeti Safaris, Kilimanjaro Treks & Ngorongoro Crater Tours. Custom Packages & Best Prices. Book Now!">
+   <title></title>
+<meta name="description" content="Book your Tanzania Safari with Kilimanjaro Marvellous Safari – a trusted Arusha safari company. We offer Serengeti Safaris, Kilimanjaro Treks, Ngorongoro Crater Tours & custom Tanzania safari packages at the best prices.">
+<meta name="robots" content="index, follow">
+
  
 
  def full_title(page_title = '')
-    base_title = "Kilimarvelous Tour Company"
+    base_title = "Tanzania Safari Tours | Serengeti, Kilimanjaro Treks & Ngorongoro | Arusha"
     if page_title.empty?
       base_title
     else
