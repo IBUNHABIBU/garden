@@ -65,6 +65,6 @@ class GearsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gear_params
-      params.fetch(:gear, {})
+      params.require(:gear).permit(:content)
     end
 end
