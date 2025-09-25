@@ -24,24 +24,24 @@
       </div>
     </div>
 
-    <!-- Left / Right Arrows -->
-<button data-action="carousel#prev" aria-label="Previous slide" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 hover:bg-white p-2 shadow-md">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-</svg>
-</button>
+        <!-- Left / Right Arrows -->
+    <button data-action="carousel#prev" aria-label="Previous slide" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 hover:bg-white p-2 shadow-md">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    </button>
 
 
-<button data-action="carousel#next" aria-label="Next slide" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 hover:bg-white p-2 shadow-md">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-</svg>
-</button>
+    <button data-action="carousel#next" aria-label="Next slide" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 hover:bg-white p-2 shadow-md">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+    </button>
 
 
     <!-- Dots -->
     <div class="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex gap-2">
-    <% hero.images.each_with_index do |_, i| %>
+    <% @hero.images.each_with_index do |_, i| %>
     <button data-action="carousel#goTo" data-carousel-index-value="<%= i %>" aria-label="Go to slide <%= i + 1 %>" class="w-2.5 h-2.5 rounded-full transition-all duration-200 bg-white/40"></button>
     <% end %>
     </div>
