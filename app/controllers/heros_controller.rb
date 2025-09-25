@@ -49,6 +49,6 @@ class HerosController < ApplicationController
     end
 
     def hero_params
-      params.require(:hero).permit(:title, :subtitle, :description, :image)
+      params.require(:hero).permit(:title, :subtitle, :description, image: [])
     end
 end
