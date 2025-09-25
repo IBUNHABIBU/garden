@@ -42,14 +42,14 @@
     <div>
       <strong class="block text-lg font-semibold text-gray-800 mb-3">Highlights</strong>
       <div class="bg-amber-50 rounded-lg p-4">
-        <p class="text-gray-700"><%= travel_tour.highlights %></p>
+        <p class="text-gray-700"><%= bullet_list(travel_tour.highlights) %></p>
       </div>
     </div>
 
     <div>
       <strong class="block text-lg font-semibold text-gray-800 mb-3">Includes</strong>
       <div class="bg-green-50 rounded-lg p-4">
-        <p class="text-gray-700"><%= travel_tour.includes %></p>
+        <p class="text-gray-700"><%= bullet_list(travel_tour.includes) %></p>
       </div>
     </div>
   </div>

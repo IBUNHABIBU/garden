@@ -1,15 +1,6 @@
-<title><%= full_title(yield(:title)) %></title>
-   <title></title>
-<meta name="description" content="Book your Tanzania Safari with Kilimanjaro Marvellous Safari – a trusted Arusha safari company. We offer Serengeti Safaris, Kilimanjaro Treks, Ngorongoro Crater Tours & custom Tanzania safari packages at the best prices.">
-<meta name="robots" content="index, follow">
-
- 
-
- def full_title(page_title = '')
-    base_title = "Tanzania Safari Tours | Serengeti, Kilimanjaro Treks & Ngorongoro | Arusha"
-    if page_title.empty?
-      base_title
-    else
-      "#{page_title} | #{base_title}"
-    end
-end
+Day 0:  Pick clients from the airport and drive to IBRAHIM GARDEN HOSTEL for the overnight stay Bed & Breakfast.
+Day 1:-   Morning after breakfast, pick clients from the place of staying in Arusha city at 8:30am with picnic lunch boxes and drive two hours to Tarangire National Park for the full day game drives which is six hours inside the park. Tarangire National Park its famous park in Tanzania for the cat’s family and heads of Elephants! You will have a chance to see a real picture of Africa while getting sunset with baobab trees. Dinner and overnight stay at JAMBO CAMPSITE.
+Day 2:-  Morning after breakfast, drive to Serengeti National Park. Game viewing en route from Ngorongoro gate via Olduvai Gorge with picnic lunch boxes. Serengeti National Park its famous park in Tanzania, known worldwide for its endless plains, wildebeest-migration, herds of lions and other predators like hyenas, cheetahs and leopards. Crocodiles can be found in the Grumeti River, as well as hippos, giraffes, antelopes, and gazelles. Dinner and overnight stay at the heat of Serengeti! SERONERA PUBLIC CAMPSITE.
+Day 3:-  unrise game viewing in Serengeti National Park. Back to the camp for breakfast and with packed lunch boxes, proceed with a game viewing en route to Ngorongoro crater rim. Dinner and overnight stay at SIMBA CAMPSITE.
+Day 4:  An early breakfast at 6:00 am and descend 610m down the crater floor with picnic lunch boxes. Full day crater tour-which its 6hrs.There is a very high possibility of spotting the big 5 in one day: Lion, Rhino, Elephant, Buffalo and Leopard. Lunch will take place at the picnic site at the crater floor. In the afternoon, ascend the crater and drive JAMBO CAMPSITE for the dinner and overnight stay.
+Day 5:-   Morning after breakfast with packed lunch boxes, drive into Lake Manyara National Park for the full day game drives. Lake Manyara National Park, it’s famous for it’s green scenery, tropical forest and tree climbing lions! Late afternoon, drive back to Arusha city. 
