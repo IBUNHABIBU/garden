@@ -3,6 +3,7 @@ class TrekkingsController < ApplicationController
 
   def index
     @trekkings = Trekking.all
+    @gears = Gear.all
   end
 
   def show
