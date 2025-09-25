@@ -25,4 +25,23 @@ module SafarisHelper
     else 'text-gray-600'
     end
   end
+
+  def format_days(input)
+    return "" if input.blank?
+
+    input.lines.map do |line|
+      if line =~ /(Day\s+\d+:)(.*)/
+        day = "<span class='font-bold underline'>#{$1.strip}</span>"
+        rest = $2.strip
+
+        if rest.empty?
+          "<div class='mb-2'>#{day}</div>"
+        else
+          "<div class='mb-2'>#{day}<div class='ml-4 text-gray-700'>#{rest}</div></div>"
+        end
+      else
+        "<div class='mb-2'>#{line.strip}</div>"
+      end
+    end.join.html_safe
+  end
 end
