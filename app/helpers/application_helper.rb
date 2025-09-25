@@ -92,4 +92,16 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def bullet_list(input)
+    return "" if input.blank?
+
+    # Split by newlines, remove empty lines, wrap each line in <li>
+    items = input.lines.map(&:strip).reject(&:empty?).map do |line|
+      "<li class='mb-1'>#{line}</li>"
+    end
+
+    "<ul class='list-disc list-inside space-y-1'>#{items.join}</ul>".html_safe
+  end
+
 end
