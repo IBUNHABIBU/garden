@@ -49,7 +49,7 @@ class HerosController < ApplicationController
 
   private
     def set_hero
-      @hero = Hero.first
+      @hero = Hero.friendly.find(params.expect(:id))
     end
 
     def hero_params
