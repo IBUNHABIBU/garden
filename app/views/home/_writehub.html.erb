@@ -1,0 +1,28 @@
+<div data-controller="slider" class="slider">
+    <div class="slides">
+        <% @hero.each do |hero| %>
+          <% if hero.image.attached? %>
+      <div class="slides__bg">
+            
+             <%= image_tag hero.image, class: "slides__img" %>
+            <div class="slides__overlay">
+                  <div class="slides__title" id="rated_title">
+                  <%=  hero.title %>
+                  </div>
+                  <div class="slides__content">
+                  <%= truncate(hero.description, length:100, separator:' ') %>
+                  </div>
+            </div>
+
+      </div>
+<% end %>   
+        <% end %>
+    </div>
+    <div class="dots">
+        <% @hero.each_with_index do |mr_article, index| %>
+          <button data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></button>
+        <% end %>
+    </div>
+</div>
+
+
