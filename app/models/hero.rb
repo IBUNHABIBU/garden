@@ -1,5 +1,5 @@
 class Hero < ApplicationRecord
-  has_many_attached :images
+  has_one_attached :image
 
   validates :title, presence: true
   validates :subtitle, presence: true
