@@ -11,4 +11,10 @@
     <strong class="block font-medium mb-1">Description:</strong>
     <%= hero.description %>
   </div>
+
+  <% if hero.image.attached? %>
+  <%= image_tag hero.image %>
+<% else %>
+  <h1>No image attached</h1>
+<% end %>
 </div>

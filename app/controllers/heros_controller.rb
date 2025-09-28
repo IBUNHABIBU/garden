@@ -1,6 +1,10 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
 
+  def index 
+    @heros = Hero.all
+  end
+
   # GET /hero
   def show
     if @hero.nil?
@@ -49,6 +53,6 @@ class HerosController < ApplicationController
     end
 
     def hero_params
-      params.require(:hero).permit(:title, :subtitle, :description, image: [])
+      params.require(:hero).permit(:title, :subtitle, :description, :image)
     end
 end
