@@ -33,4 +33,18 @@ export default class extends Controller {
       dot.classList.toggle("bg-opacity-50", i !== this.indexValue)
     })
   }
+
+    // Auto sliding
+  startAutoSlide() {
+    this.timer = setInterval(() => this.next(), 5000) // change every 5s
+  }
+
+  stopAutoSlide() {
+    clearInterval(this.timer)
+  }
+
+  resetAutoSlide() {
+    this.stopAutoSlide()
+    this.startAutoSlide()
+  }
 }
