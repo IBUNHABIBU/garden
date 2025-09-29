@@ -28,12 +28,14 @@
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">Image</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <% if @hero.image.attached? %>
-              <%= image_tag @hero.image, class: "h-64 object-cover rounded-md" %>
-            <% else %>
-              <span class="text-gray-500">No image uploaded</span>
+          <% if @hero.images.attached? %>
+            <% @hero.images.each do |image| %>
+              <%= image_tag image, class: "h-64 object-cover rounded-md mb-2" %>
             <% end %>
-          </dd>
+          <% else %>
+            <span class="text-gray-500">No image uploaded</span>
+          <% end %>
+        </dd>
         </div>
       </dl>
     </div>
