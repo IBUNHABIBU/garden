@@ -1,9 +1,6 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
 
-  def index 
-    @heros = Hero.all
-  end
 
   # GET /hero
   def show
@@ -49,10 +46,10 @@ class HerosController < ApplicationController
 
   private
     def set_hero
-      @hero = Hero.friendly.find(params.expect(:id))
+      @hero = Hero.first
     end
 
     def hero_params
-      params.require(:hero).permit(:title, :subtitle, :description, :image)
+      params.require(:hero).permit(:title, :subtitle, :description, images: [])
     end
 end
