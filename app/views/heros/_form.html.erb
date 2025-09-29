@@ -28,10 +28,10 @@
     </div>
 
     <div>
-      <%= form.label :image, class: "block text-sm font-medium text-gray-700" %>
-      <%= form.file_field :image, class: "mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-800 file:text-white hover:file:bg-green-700" %>
+      <%= form.label :images, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.file_field :images, multiple: true, class: "mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-800 file:text-white hover:file:bg-green-700" %>
       
-      <% if hero.image.attached? %>
+      <% if hero.images.attached? %>
         <div class="mt-2">
           <%= image_tag hero.image, class: "h-32 object-cover rounded-md" %>
           <div class="mt-2">
