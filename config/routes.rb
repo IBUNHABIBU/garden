@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   resources :destinations
   resources :heros
 
+  resource :hero, only: [:show, :new, :create, :edit, :update, :destroy] do
+    get 'gallery', on: :member
+  end
+
+# Or if you want a simpler URL:
+get 'gallery', to: 'heros#gallery'
+
   # SEO-friendly routes
   resources :travel_tours, path: 'tours'
   resources :trekkings, path: 'treks' 

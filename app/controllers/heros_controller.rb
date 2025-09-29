@@ -1,13 +1,19 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
 
-
   # GET /hero
   def show
     if @hero.nil?
       redirect_to new_hero_path, notice: 'Please create your hero section'
     end
   end
+
+  def gallery
+  @hero = Hero.first
+  if @hero.nil?
+    redirect_to new_hero_path, notice: 'Please create your hero section first'
+  end
+end
 
   # GET /hero/new
   def new
@@ -25,16 +31,24 @@ class HerosController < ApplicationController
     if @hero.save
       redirect_to root_path, notice: 'Hero section was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /hero
   def update
+    # Remove selected images first
+    if params[:hero][:images_to_remove].present?
+      params[:hero][:images_to_remove].each do |signed_id|
+        image = @hero.images.find_signed(signed_id)
+        image.purge if image
+      end
+    end
+    
     if @hero.update(hero_params)
-      redirect_to hero_path, notice: 'Hero section was successfully updated.'
+      redirect_to hero_path, notice: 'Hero was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
