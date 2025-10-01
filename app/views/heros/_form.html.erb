@@ -31,28 +31,26 @@
       <%= form.label :images, class: "block text-sm font-medium text-gray-700" %>
       <%= form.file_field :images, multiple: true, class: "mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-800 file:text-white hover:file:bg-green-700" %>
       
-   <% if hero.images.attached? %>
-  <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <% hero.images.each do |image| %>
-      <div class="relative group rounded-md overflow-hidden" style="height: 128px;">
-        <%= image_tag image, class: "h-full w-full object-cover" %>
-        
-        <!-- Hover overlay -->
-        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
-        
-        <!-- Checkbox -->
-        <div class="absolute top-2 right-2 z-10">
-          <label class="flex items-center justify-center h-6 w-6 rounded-full bg-white shadow-lg cursor-pointer hover:bg-red-50 transition-colors">
-            <%= check_box_tag "hero[images_to_remove][]", image.signed_id, false, 
-                class: "h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500 cursor-pointer",
-                id: "remove_image_#{image.id}" %>
-          </label>
+      <% if hero.images.attached? %>
+        <div class="mt-2">
+          <p class="text-sm font-medium text-gray-700">Current Gallery Images</p>
+          <div class="mt-1 grid grid-cols-3 gap-2">
+            <% hero.images.each do |image| %>
+              <div class="relative">
+                <% if hero.persisted? && hero.images.attached? %>
+                  <% hero.images.each do |image| %>
+                    <div class="relative">
+                      <%= image_tag image, class: "w-24" %>
+                    <%= link_to 'Remove', rails_direct_uploads_path(image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" %>    </div>
+                  <% end %>
+                <% else %>
+                  <p class="text-gray-400 text-sm">No gallery images uploaded yet</p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <p class="mt-2 text-sm text-gray-500">Check images to remove them</p>
-<% end %>
+      <% end %>
     </div>
 
     <div class="flex items-center justify-end space-x-3">
