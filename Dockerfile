@@ -39,6 +39,11 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
+    # Add libvips for image processing
+RUN apt-get update && apt-get install -y \
+    libvips \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy application code
 COPY . .
 
