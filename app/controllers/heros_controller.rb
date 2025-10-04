@@ -9,7 +9,7 @@ class HerosController < ApplicationController
   end
 
   def gallery
-  @hero = Hero.first
+  @hero = Hero.includes(images_attachments: :blob).first
   if @hero.nil?
     redirect_to new_hero_path, notice: 'Please create your hero section first'
   end
@@ -60,7 +60,7 @@ end
 
   private
     def set_hero
-      @hero = Hero.first
+      @hero = Hero.includes(images_attachments: :blob).first
     end
 
     def hero_params
