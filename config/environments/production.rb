@@ -18,6 +18,16 @@ config.action_mailer.smtp_settings = {
   enable_starttls_auto: true
 }
 
+
+# Use vips for faster image processing
+config.active_storage.variant_processor = :vips
+
+# Enable variant caching
+config.active_storage.resolve_model_to_route = :rails_storage_proxy
+
+# Precompile variants in background
+config.active_storage.queues.analysis = :active_storage_analysis
+config.active_storage.queues.purge = :active_storage_purge
   
   # Code is not reloaded between requests.
   config.enable_reloading = false
