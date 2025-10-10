@@ -81,3 +81,5 @@ gem 'friendly_id', '~> 5.4'
 
 # Ggem 'sitemap_generator'
 gem 'sitemap_generator'
+
+gem 'bullet', group: :development
