@@ -93,7 +93,8 @@
       <% @team_members.each do |member| %>
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
           <% if member.photo.attached? %>
-            <%= image_tag url_for(member.photo), class: "w-full h-64 object-cover", alt: member.name %>
+            <%= image_tag url_for(member.photo.variant(resize_to_limit: [100, 100]),
+              loading: "lazy"), class: "w-full h-64 object-cover", alt: member.name %>
           <% else %>
             <%= image_tag "mavelogo.png", class: "w-full h-64 object-cover", alt: member.name %>
           <% end %>

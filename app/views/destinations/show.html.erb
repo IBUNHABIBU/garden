@@ -19,7 +19,8 @@
         <div>
           <% if @destination.image.attached? %>
             <div class="rounded-lg overflow-hidden mb-6">
-              <%= image_tag @destination.image, class: "w-full h-auto" %>
+              <%= image_tag @destination.image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "w-full h-auto" %>
             </div>
           <% end %>
         </div>

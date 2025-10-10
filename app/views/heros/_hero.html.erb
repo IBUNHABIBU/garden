@@ -13,7 +13,8 @@
   </div>
 
   <% if hero.image.attached? %>
-  <%= image_tag hero.image %>
+  <%= image_tag hero.image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy" %>
 <% else %>
   <h1>No image attached</h1>
 <% end %>
