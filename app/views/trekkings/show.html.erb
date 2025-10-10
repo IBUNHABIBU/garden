@@ -5,7 +5,8 @@
     <!-- Image Header -->
     <div class="relative h-96">
       <% if @trekking.main_image.attached? %>
-        <%= image_tag @trekking.main_image, class: "w-full h-96 object-cover", alt: @trekking.title %>
+        <%= image_tag @trekking.main_image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "w-full h-96 object-cover", alt: @trekking.title %>
       <% else %>
         <div class="w-full h-96 bg-earth-brown flex items-center justify-center">
           <svg class="w-20 h-20 text-golden-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +52,8 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           <% @trekking.gallery_images.each do |image| %>
             <div class="aspect-square overflow-hidden rounded-lg">
-              <%= image_tag image, class: "w-full h-full object-cover hover:scale-105 transition-transform duration-300", alt: "Trekking photo" %>
+              <%= image_tag image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "w-full h-full object-cover hover:scale-105 transition-transform duration-300", alt: "Trekking photo" %>
             </div>
           <% end %>
         </div>

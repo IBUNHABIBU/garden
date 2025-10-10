@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @hero = Hero.first
-    @featured_tours = TravelTour.featured.limit(3)
-    @popular_destinations = Destination.featured.limit(3) # Add this line
-    @testimonials = Testimonial.order(rating: :desc).limit(3) # Add this line
+    @hero = Hero.with_attached_images.first
+    @featured_tours = TravelTour.with_attached_images.featured.limit(3)
+    @popular_destinations = Destination.with_attached_images.featured.limit(3) # Add this line
+    @testimonials = Testimonial.with_attached_avatar.order(rating: :desc).limit(3) # Add this line
     @cta =   @cta = {
       title: "Ready for Your Next Adventure?",
       subtitle: "Join thousands of happy travelers who've explored with us",

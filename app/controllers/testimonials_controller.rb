@@ -2,7 +2,7 @@ class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
   def index
-    @testimonials = Testimonial.all.order(created_at: :desc)
+    @testimonials = Testimonial.with_attached_avatar.all.order(created_at: :desc)
   end
 
   def show

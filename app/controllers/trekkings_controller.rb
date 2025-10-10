@@ -2,7 +2,7 @@ class TrekkingsController < ApplicationController
   before_action :set_trekking, only: %i[ show edit update destroy ]
 
   def index
-    @trekkings = Trekking.all
+    @trekkings = Trekking.with_attached_images.all
     @gears = Gear.all
   end
 
