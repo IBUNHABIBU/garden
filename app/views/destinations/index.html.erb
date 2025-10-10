@@ -26,7 +26,8 @@
               <div class="flex items-center">
                 <% if destination.image.attached? %>
                   <div class="flex-shrink-0 h-10 w-10">
-                    <%= image_tag destination.image, class: "h-10 w-10 rounded-full" %>
+                    <%= image_tag destination.image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "h-10 w-10 rounded-full" %>
                   </div>
                 <% end %>
                 <div class="ml-4">
