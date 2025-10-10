@@ -34,7 +34,8 @@
           <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
             <% if tour.image.attached? %>
               <div class="h-48 overflow-hidden">
-                <%= image_tag tour.image, class: "w-full h-full object-cover", alt: tour.name %>
+                <%= image_tag tour.image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "w-full h-full object-cover", alt: tour.name %>
               </div>
             <% else %>
               <div class="h-48 bg-gray-200 flex items-center justify-center">
@@ -138,7 +139,8 @@
         <% @popular_destinations.each do |destination| %>
           <div class="relative group overflow-hidden rounded-lg shadow-md h-96">
             <% if destination.image.attached? %>
-              <%= image_tag destination.image, class: "w-full h-full object-cover transform group-hover:scale-105 transition duration-500", alt: destination.name %>
+              <%= image_tag destination.image.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "w-full h-full object-cover transform group-hover:scale-105 transition duration-500", alt: destination.name %>
             <% else %>
               <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                 <span class="text-gray-500">No image available</span>
@@ -182,7 +184,8 @@
           <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
               <% if testimonial.avatar.attached? %>
-                <%= image_tag testimonial.avatar, class: "h-12 w-12 rounded-full object-cover", alt: testimonial.author_name %>
+                <%= image_tag testimonial.avatar.variant(resize_to_limit: [100, 100]),
+              loading: "lazy", class: "h-12 w-12 rounded-full object-cover", alt: testimonial.author_name %>
               <% else %>
                 <div class="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center">
                   <span class="text-gray-500 text-xs">Photo</span>
