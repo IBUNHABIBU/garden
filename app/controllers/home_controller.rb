@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @hero = Hero.with_attached_images.first
-    @featured_tours = TravelTour.with_attached_images.featured.limit(3)
+    @featured_tours = TravelTour.with_attached_image.with_attached_gallery_images.featured.limit(3)
     @popular_destinations = Destination.with_attached_images.featured.limit(3) # Add this line
     @testimonials = Testimonial.with_attached_avatar.order(rating: :desc).limit(3) # Add this line
     @cta =   @cta = {
