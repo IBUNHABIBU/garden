@@ -6,7 +6,15 @@ Rails.application.configure do
     config.after_initialize do
       Bullet.enable = true
       Bullet.alert = true
-      Bullet.console = true
+      Bullet.console = 
+       # Show alerts in browser console (F12)
+      Bullet.rails_logger = true
+      
+      # Add footer to page with warnings
+      Bullet.add_footer = true
+      
+      # Log to bullet.log file
+      Bullet.bullet_logger = true
     end
   
  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
