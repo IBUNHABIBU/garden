@@ -3,7 +3,7 @@ class SafarisController < ApplicationController
 
   # GET /safaris or /safaris.json
   def index
-    @safaris = Safari.with_attached_images.all
+    @safaris = Safari.with_attached_main_image.with_attached_gallery_images.all
   end
 
   # GET /safaris/1 or /safaris/1.json
