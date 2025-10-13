@@ -1,29 +1,24 @@
 class HomeController < ApplicationController
   def index
-    @hero = Hero.includes(images_attachments: :blob).first
-    @featured_tours = TravelTour.with_attached_image.includes(main_image_attachment: :blob).featured.limit(3)
-    @popular_destinations = Destination.includes(images_attachments: :blob).featured.limit(3) # Add this line
-    @testimonials = Testimonial.includes(images_attachments: :blob).order(rating: :desc).limit(3) # Add this line
-    @cta = {
-      title: "Ready for Your Next Adventure?",
-      subtitle: "Join thousands of happy travelers who've explored with us",
-      button_text: "Book Now",
-      button_url: travel_tours_path,
-      secondary_button_text: "Contact Us",
-      secondary_button_url: root_path,
-      background_color: "green-800"
-    }
+    # ✅ Correct eager loading
+    @hero = Hero.with_attached_images.first
+    @featured_tours = TravelTour.with_attached_image.where(featured: true).limit(3)
+    @popular_destinations = Destination.with_attached_image.where(featured: true).limit(3)
+    @testimonials = Testimonial.with_attached_avatar.order(rating: :desc).limit(3)
+
+    @cta = default_cta
   end
 
   private
     def default_cta
-      OpenStruct.new(
+      {
         title: "Ready for Your Next Adventure?",
         subtitle: "Join thousands of happy travelers who've explored with us",
         button_text: "Book Now",
-        button_url: tours_path,
+        button_url: travel_tours_path,
         secondary_button_text: "Contact Us",
-        secondary_button_url: contact_path
-      )
-   end
+        secondary_button_url: contact_path,
+        background_color: "green-800"
+      }
+    end
 end

@@ -34,7 +34,7 @@
           <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
             <% if tour.image.attached? %>
               <div class="h-48 overflow-hidden">
-                <%= image_tag tour.image.variant(resize_to_limit: [100, 100]),
+                <%= image_tag tour.image.variant(resize_to_limit: [600, 400]),
               loading: "lazy", class: "w-full h-full object-cover", alt: tour.name %>
               </div>
             <% else %>
