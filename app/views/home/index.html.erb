@@ -139,7 +139,7 @@
         <% @popular_destinations.each do |destination| %>
           <div class="relative group overflow-hidden rounded-lg shadow-md h-96">
             <% if destination.image.attached? %>
-              <%= image_tag destination.image.variant(resize_to_limit: [100, 100]),
+              <%= image_tag destination.image.variant(resize_to_limit: [600, 400]),
               loading: "lazy", class: "w-full h-full object-cover transform group-hover:scale-105 transition duration-500", alt: destination.name %>
             <% else %>
               <div class="w-full h-full bg-gray-200 flex items-center justify-center">
