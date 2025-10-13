@@ -15,6 +15,11 @@ Rails.application.configure do
       
       # Log to bullet.log file
       Bullet.bullet_logger = true
+      Bullet.unused_eager_loading_enable = false
+
+        # Bullet.add_whitelist type: :unused_eager_loading,
+        #                class_name: "ActiveStorage::Attachment",
+        #                association: :blob
     end
   
  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
