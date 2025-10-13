@@ -93,7 +93,7 @@
               <div class="grid grid-cols-2 gap-2">
                 <% @travel_tour.gallery_images.each do |image| %>
                   <div class="rounded-md overflow-hidden">
-                    <%= image_tag image.variant(resize_to_limit: [100, 100]),
+                    <%= image_tag image.variant(resize_to_limit: [500, 500]),
               loading: "lazy", class: "w-full h-24 object-cover" %>
                   </div>
                 <% end %>

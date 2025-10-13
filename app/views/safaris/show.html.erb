@@ -7,7 +7,7 @@
     <!-- Image Header -->
     <div class="relative h-96">
       <% if @safari.main_image.attached? %>
-        <%= image_tag @safari.main_image.variant(resize_to_limit: [100, 100]),
+        <%= image_tag @safari.main_image.variant(resize_to_limit: [1200, 800]),
               loading: "lazy", class: "w-full h-96 object-cover", alt: @safari.main_image_alt.presence || @safari.title %>
       <% else %>
         <div class="w-full h-96 bg-earth-brown flex items-center justify-center">
@@ -123,7 +123,7 @@
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             <% @safari.gallery_images.each do |image| %>
               <div class="aspect-square overflow-hidden rounded-lg">
-                <%= image_tag image.variant(resize_to_limit: [100, 100]),
+                <%= image_tag image.variant(resize_to_limit: [500, 500]),
               loading: "lazy", class: "w-full h-full object-cover hover:scale-105 transition-transform duration-300", alt: "Safari photo" %>
               </div>
             <% end %>
