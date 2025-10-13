@@ -18,7 +18,7 @@
         <div class="lg:col-span-2">
           <% if @travel_tour.image.attached? %>
             <div class="rounded-lg overflow-hidden mb-6">
-              <%= image_tag @travel_tour.image.variant(resize_to_limit: [100, 100]),
+              <%= image_tag @travel_tour.image.variant(resize_to_limit: [1200, 800]),
               loading: "lazy", class: "w-full h-auto" %>
             </div>
           <% end %>

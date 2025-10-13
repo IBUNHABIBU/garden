@@ -17,7 +17,7 @@ class HomeController < ApplicationController
         button_text: "Book Now",
         button_url: travel_tours_path,
         secondary_button_text: "Contact Us",
-        secondary_button_url: contact_path,
+        secondary_button_url: pages_contact_path,
         background_color: "green-800"
       }
     end
