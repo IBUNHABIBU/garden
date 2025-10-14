@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :check_confirmation 
+  before_action :check_confirmation, unless: :devise_controller?
   before_action :require_admin_access, if: -> { admin_action? }
 
   protected
@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   def admin_action?
     admin_actions = %w[new create edit update destroy]
     admin_actions.include?(action_name) && 
-    action_methods.include?(action_name)
+    action_methods.include?(action_name)&&
+    !devise_controller?
   end
 end
