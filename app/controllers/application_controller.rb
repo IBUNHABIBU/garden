@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :check_confirmation
+  before_action :check_confirmation 
+  before_action :require_admin_access, if: -> { admin_action? }
 
   protected
 
@@ -21,5 +22,13 @@ class ApplicationController < ActionController::Base
     unless current_user && (current_user.admin? || current_user.super_admin?)
       redirect_to root_path, alert: "You are not authorized to access this page."
     end
+  end
+
+  private 
+
+  def admin_action?
+    admin_actions = %w[new create edit update destroy]
+    admin_actions.include?(action_name) && 
+    action_methods.include?(action_name)
   end
 end
