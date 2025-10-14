@@ -39,7 +39,8 @@
         <div class="mt-2">
           <p class="text-sm font-medium text-gray-700">Current Photo</p>
           <div class="mt-1 w-32 h-32 overflow-hidden rounded-full border border-gray-200">
-            <%= image_tag testimonial.avatar, class: "w-full h-full object-cover" %>
+            <%= image_tag testimonial.avatar.variant(resize_to_limit: [400, 300]),
+                    loading: "lazy", class: "w-full h-full object-cover" %>
           </div>
           <div class="mt-2 flex items-center">
             <%= form.check_box :remove_avatar, class: "h-4 w-4 rounded border-gray-300 text-green-800 focus:ring-green-800" %>

@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
+  # before_action :require_admin_access, only: %i[new create edit destroy]
 
   def index
     @destinations = Destination.with_attached_image.all
