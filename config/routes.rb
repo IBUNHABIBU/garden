@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   resources :gears
   resources :team_members
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'

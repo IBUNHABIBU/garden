@@ -309,3 +309,5 @@ deployer@vmi1909189:~$ docker exec -it -u 0 86417933f9c9 chmod -R 777 /rails/sto
 #### wanga
 
 
+
+rails generate scaffold Video title:string duration:integer
