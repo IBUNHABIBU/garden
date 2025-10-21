@@ -65,6 +65,6 @@ class VideosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def video_params
-      params.expect(video: [ :title, :duration ])
+      params.expect(video: [ :title, :duration, :video_file ])
     end
 end
