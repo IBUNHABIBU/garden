@@ -5,11 +5,18 @@ class HomeController < ApplicationController
     @featured_tours = TravelTour.with_attached_image.where(featured: true).limit(3)
     @popular_destinations = Destination.with_attached_image.where(featured: true).limit(3)
     @testimonials = Testimonial.with_attached_avatar.order(rating: :desc).limit(3)
+    @featuredvideo = Video.first
+
+    record_visit
 
     @cta = default_cta
   end
 
   private
+
+    def record_visit
+      Visit.create(visited_at: Time.current)
+    end
     def default_cta
       {
         title: "Ready for Your Next Adventure?",

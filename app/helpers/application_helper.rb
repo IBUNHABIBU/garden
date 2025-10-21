@@ -80,8 +80,9 @@ module ApplicationHelper
     end
   end
 
-  def admin_user?
-    user_signed_in? && (current_user.admin? || current_user.super_admin?)
+
+  def super_admin
+    user_signed_in? && current_user.super_admin?
   end
 
   def full_title(page_title = '')

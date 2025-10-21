@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[ show edit update destroy ]
+  before_action :check_video_limit, only: [:new, :create]
 
   # GET /videos or /videos.json
   def index
@@ -66,5 +67,11 @@ class VideosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def video_params
       params.expect(video: [ :title, :duration, :video_file ])
+    end
+
+    def check_video_limit
+      if Video.exists?
+        redirect_to root_path, alert: "Only one video allowed. Please delete the existing video first."
+      end
     end
 end

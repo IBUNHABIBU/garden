@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :authorize_user_management
 
   def index
-    @users = User.all.order(role: :desc, created_at: :desc)
+    @users = User.visible_users.order(role: :desc, created_at: :desc)
   end
 
   def update

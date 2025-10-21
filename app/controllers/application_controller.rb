@@ -4,8 +4,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :check_confirmation, unless: :devise_controller?
   before_action :require_admin_access, if: -> { admin_action? }
+  helper_method :can_grant_admin?
+  helper_method :admin_user?
 
   protected
+
+  def can_grant_admin?(user)
+    admin_user? && user != current_user && !user.super_admin?
+  end
+
+  def admin_user?
+    user_signed_in? && (current_user.admin? || current_user.super_admin?)
+  end
 
   def check_confirmation
     if user_signed_in? && !current_user.confirmed?
