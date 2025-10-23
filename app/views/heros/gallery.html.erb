@@ -7,9 +7,10 @@
           <h1 class="text-3xl font-bold text-gray-900">Discover the Magic of Tanzania's Natural Wonders</h1>
         </div>
         <div class="flex gap-3">
-
-         <%= link_to "See video", root_path, class: "px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors" %>
-        <%= link_to "Back", root_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300" %>
+          <% if video = Video.first %>
+            <%= link_to "See video", video_path(video), class: "px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors" %>
+          <% end %>
+         <%= link_to "Back", root_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300" %>
           
         </div>
         </div>
