@@ -1,12 +1,12 @@
 <!-- app/views/videos/show.html.erb -->
-<div class="max-w-4xl mx-auto px-4 py-8">
+<div class="max-w-4xl mx-auto px-4">
   <div class="bg-white shadow rounded-lg overflow-hidden">
     <div class="p-6">
       <h1 class="text-3xl font-bold text-gray-900 mb-4"><%= @video.title %></h1>
       
       <% if @video.video_file.attached? %>
         <div class="mb-6">
-          <%= video_tag url_for(@video.video_file), controls: true, class: "w-full rounded-lg" %>
+          <%= video_tag url_for(@video.video_file), controls: true, class: "w-full rounded-lg h-[80vh]" %>
         </div>
       <% end %>
 
