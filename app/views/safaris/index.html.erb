@@ -25,7 +25,8 @@
         <!-- Image -->
         <div class="relative">
           <% if safari.main_image.attached? %>
-            <%= image_tag safari.main_image, class: "w-full h-48 object-cover", alt: safari.main_image_alt.presence || safari.title %>
+            <%= image_tag safari.main_image.variant(resize_to_limit: [500, 500]),
+              loading: "lazy", class: "w-full h-48 object-cover", alt: safari.main_image_alt.presence || safari.title %>
           <% else %>
             <div class="w-full h-48 bg-earth-brown flex items-center justify-center">
               <svg class="w-12 h-12 text-golden-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">

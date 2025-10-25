@@ -35,6 +35,7 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
+        
           <% @users.each do |user| %>
             <tr class="hover:bg-gray-50 transition-colors duration-200">
               <!-- User Info -->
@@ -73,7 +74,7 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <div class="flex space-x-2">
                   <!-- Grant Admin Button -->
-                  <% if current_user.super_admin? && user.user? %>
+                  <% if user.user? && can_grant_admin?(user)  %>
                     <%= form_with model: user, url: user_path(user), method: :patch, class: "inline" do |f| %>
                       <%= f.hidden_field :role, value: "admin" %>
                       <%= f.button type: "submit", class: "text-green-600 hover:text-green-800 bg-green-50 hover:bg-green-100 px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200", 
@@ -87,7 +88,7 @@
                   <% end %>
 
                   <!-- Revoke Admin Button (only for super_admin to revoke from admin) -->
-                  <% if current_user.super_admin? && user.admin? && !user.super_admin? %>
+                  <% if (user.admin? || user.super_admin?) && can_grant_admin?(user) %>
                     <%= form_with model: user, url: user_path(user), method: :patch, class: "inline" do |f| %>
                       <%= f.hidden_field :role, value: "user" %>
                       <%= f.button type: "submit", class: "text-amber-600 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200", 

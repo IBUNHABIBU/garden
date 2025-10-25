@@ -5,7 +5,8 @@
     <!-- Image Header -->
     <div class="relative h-96">
       <% if @trekking.main_image.attached? %>
-        <%= image_tag @trekking.main_image, class: "w-full h-96 object-cover", alt: @trekking.title %>
+        <%= image_tag @trekking.main_image.variant(resize_to_limit: [1200, 800]),
+              loading: "lazy", class: "w-full h-96 object-cover", alt: @trekking.title %>
       <% else %>
         <div class="w-full h-96 bg-earth-brown flex items-center justify-center">
           <svg class="w-20 h-20 text-golden-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,8 +26,12 @@
               <%= @trekking.difficulty.capitalize %>
             </span>
           </div>
-          <h1 class="text-4xl font-bold mb-2"><%= @trekking.title %></h1>
-          <p class="text-xl opacity-90"><%= @trekking.overview_title %></p>
+          
+          <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+            <%= @trekking.title %>
+          </h1>
+          <p class="text-base sm:text-lg md:text-xl opacity-90"><%= @trekking.overview_title %></p>
+
         </div>
       </div>
     </div>
@@ -51,7 +56,8 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           <% @trekking.gallery_images.each do |image| %>
             <div class="aspect-square overflow-hidden rounded-lg">
-              <%= image_tag image, class: "w-full h-full object-cover hover:scale-105 transition-transform duration-300", alt: "Trekking photo" %>
+              <%= image_tag image.variant(resize_to_limit: [500, 500]),
+              loading: "lazy", class: "w-full h-full object-cover hover:scale-105 transition-transform duration-300", alt: "Trekking photo" %>
             </div>
           <% end %>
         </div>

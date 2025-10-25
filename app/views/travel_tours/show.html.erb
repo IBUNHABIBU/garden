@@ -18,7 +18,8 @@
         <div class="lg:col-span-2">
           <% if @travel_tour.image.attached? %>
             <div class="rounded-lg overflow-hidden mb-6">
-              <%= image_tag @travel_tour.image, class: "w-full h-auto" %>
+              <%= image_tag @travel_tour.image.variant(resize_to_limit: [1200, 800]),
+              loading: "lazy", class: "w-full h-auto" %>
             </div>
           <% end %>
 
@@ -92,7 +93,8 @@
               <div class="grid grid-cols-2 gap-2">
                 <% @travel_tour.gallery_images.each do |image| %>
                   <div class="rounded-md overflow-hidden">
-                    <%= image_tag image, class: "w-full h-24 object-cover" %>
+                    <%= image_tag image.variant(resize_to_limit: [500, 500]),
+              loading: "lazy", class: "w-full h-24 object-cover" %>
                   </div>
                 <% end %>
               </div>

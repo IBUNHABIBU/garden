@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  resources :videos
+>>>>>>> domain
   resources :gears
   resources :team_members
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'

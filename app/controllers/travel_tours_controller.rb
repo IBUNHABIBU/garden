@@ -3,7 +3,7 @@ class TravelToursController < ApplicationController
 
   # GET /travel_tours or /travel_tours.json
   def index
-    @travel_tours = TravelTour.all
+    @travel_tours = TravelTour.with_attached_image.with_attached_gallery_images.all
   end
 
   # GET /travel_tours/1 or /travel_tours/1.json

@@ -3,7 +3,7 @@ class TeamMembersController < ApplicationController
 
   # GET /team_members or /team_members.json
   def index
-    @team_members = TeamMember.all
+    @team_members = TeamMember.with_attached_image.all
   end
 
   # GET /team_members/1 or /team_members/1.json
