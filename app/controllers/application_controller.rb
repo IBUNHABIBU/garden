@@ -2,12 +2,6 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   before_action :configure_permitted_parameters, if: :devise_controller?
-<<<<<<< HEAD
-  before_action :check_confirmation
-
-  protected
-
-=======
   before_action :check_confirmation, unless: :devise_controller?
   before_action :require_admin_access, if: -> { admin_action? }
   helper_method :can_grant_admin?
@@ -23,7 +17,6 @@ class ApplicationController < ActionController::Base
     user_signed_in? && (current_user.admin? || current_user.super_admin?)
   end
 
->>>>>>> domain
   def check_confirmation
     if user_signed_in? && !current_user.confirmed?
       redirect_to new_user_confirmation_path, alert: "Please confirm your email address to continue."
