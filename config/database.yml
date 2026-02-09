@@ -24,7 +24,7 @@ development:
   <<: *default
   database: tour_development
   username: postgres
-  password: Voda0763
+  password: voda
   host: localhost
 
   # The specified database role being used to connect to PostgreSQL.
