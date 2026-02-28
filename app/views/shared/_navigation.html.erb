@@ -36,7 +36,10 @@
         <% if admin_user? %>
         
           <%= link_to "Bookings", bookings_path, class: "text-white hover:text-golden-yellow  py-2 rounded-md text-sm font-medium" %>
-        <% end %>
+        <% else %>
+          <%= link_to 'My Bookings', '#', 
+              class: "px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition duration-150 font-medium" %>
+          <% end %>
       </div>
       
       <!-- Mobile menu button -->
