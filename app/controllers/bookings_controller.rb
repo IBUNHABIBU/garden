@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @booking.name  = current_user.name
+    @booking.full_name  = current_user.first_name
     @booking.email = current_user.email
   end
 
