@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :role, presence: true, inclusion: { in: %w[super_admin admin user] }
+  has_many :bookings, dependent: :destroy
   
   scope :visible_users, -> { where(role: ['user', 'admin']) }
   
