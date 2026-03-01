@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :update, :destroy]
 
   # App resources
-  resources :bookings
+  resources :bookings do
+    member do
+      patch :update_status
+    end
+  end
   resources :destinations
   resources :heros
 

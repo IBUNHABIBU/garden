@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_booking, only: %i[ show edit update destroy ]
   before_action :require_admin_access, only: %i[edit destroy]
+  before_action :ensure_admin, only: :update_status
 
   # GET /bookings or /bookings.json
   def index
@@ -11,6 +12,7 @@ class BookingsController < ApplicationController
       @bookings = current_user.bookings.all
     end
   end
+
 
   # GET /bookings/1 or /bookings/1.json
   def show

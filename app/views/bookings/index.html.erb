@@ -47,6 +47,13 @@
                     <%= booking.start_date %> to <%= booking.end_date %>
                   </p>
                 </div>
+                # <% if current_user.admin? %>
+  <%= button_to "Confirm", update_status_booking_path(booking, status: :confirmed), method: :patch %>
+
+  <%= button_to "Cancel", update_status_booking_path(booking, status: :cancelled), method: :patch %>
+
+  <%= button_to "Complete", update_status_booking_path(booking, status: :completed), method: :patch %>
+# <% end %>
               </div>
             </div>
           <% end %>
