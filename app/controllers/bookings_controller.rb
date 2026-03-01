@@ -1,10 +1,15 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_booking, only: %i[ show edit update destroy ]
   before_action :require_admin_access, only: %i[edit destroy]
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    if current_user.admin?
+     @bookings = Booking.all
+    else 
+      @bookings = current_user.bookings.all
+    end
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -14,7 +19,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @booking.full_name  = current_user.first_name
+    @booking.full_name  = current_user.display_name
     @booking.email = current_user.email
   end
 
