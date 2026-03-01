@@ -13,6 +13,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update_status
+     @booking = Booking.find(params[:id])
+
+    if Booking.statuses.keys.include?(params[:status])
+      @booking.update(status: params[:status])
+      redirect_to @booking, notice: "Status updated successfully."
+    else
+      redirect_to @booking, alert: "Invalid status."
+    end
+  end
+
 
   # GET /bookings/1 or /bookings/1.json
   def show
