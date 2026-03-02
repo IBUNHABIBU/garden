@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   def update_status
      @booking = Booking.find(params[:id])
 
-    if Booking.statuses.keys.include?(params[:status])
+    if Booking.status.keys.include?(params[:status])
       @booking.update(status: params[:status])
       redirect_to @booking, notice: "Status updated successfully."
     else
@@ -80,6 +80,9 @@ class BookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def ensure_admin
+     redirect_to root_path, alert: "Not authorized." unless current_user.admin?
+    end
     def set_booking
       @booking = Booking.find(params.expect(:id))
     end

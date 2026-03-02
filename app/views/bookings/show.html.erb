@@ -17,7 +17,33 @@
 
     <div class="p-6">
       <%= render @booking %>
+<% if current_user.admin? %>
+  <div class="mt-6 flex flex-wrap gap-3">
+    <%= button_to update_status_booking_path(@booking, status: :pending), method: :patch,
+        class: "px-4 py-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-white font-medium",
+        data: { turbo_confirm: "Change status to Pending?" } do %>
+      Pending
+    <% end %>
 
+    <%= button_to update_status_booking_path(@booking, status: :confirmed), method: :patch,
+        class: "px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium",
+        data: { turbo_confirm: "Change status to Confirmed?" } do %>
+      Confirmed
+    <% end %>
+
+    <%= button_to update_status_booking_path(@booking, status: :cancelled), method: :patch,
+        class: "px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-medium",
+        data: { turbo_confirm: "Change status to Cancelled?" } do %>
+      Cancelled
+    <% end %>
+
+    <%= button_to update_status_booking_path(@booking, status: :completed), method: :patch,
+        class: "px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium",
+        data: { turbo_confirm: "Change status to Completed?" } do %>
+      Completed
+    <% end %>
+  </div>
+<% end %>
       <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
         <%= link_to edit_booking_path(@booking), class: "flex items-center justify-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-200" do %>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
