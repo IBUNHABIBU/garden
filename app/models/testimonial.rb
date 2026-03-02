@@ -4,6 +4,7 @@ class Testimonial < ApplicationRecord
   friendly_id :author_name, use: [:slugged, :history, :finders]
   
   has_one_attached :avatar
+  belongs_to :user
 
   validates :author_name, presence: true
   validates :content, presence: true, length: { minimum: 20 }

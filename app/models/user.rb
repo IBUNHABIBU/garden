@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   
   scope :visible_users, -> { where(role: ['user', 'admin']) }
+  has_many :testimonials, dependent: :nullify
   
   # Set default role
   before_validation :set_default_role, on: :create
