@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   def update_status
      @booking = Booking.find(params[:id])
 
-    if Booking.status.keys.include?(params[:status])
+    if Booking.statuses.keys.include?(params[:status])
       @booking.update(status: params[:status])
       redirect_to @booking, notice: "Status updated successfully."
     else
