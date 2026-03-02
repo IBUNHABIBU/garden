@@ -61,7 +61,7 @@ test:
   <<: *default
   database: tour_test
   username: postgres
-  password: Voda0763
+  password: voda
   host: localhost
 
 # As with config/credentials.yml, you never want to store sensitive information,
