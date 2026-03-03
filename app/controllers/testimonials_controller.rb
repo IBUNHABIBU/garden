@@ -10,8 +10,8 @@ class TestimonialsController < ApplicationController
 
   def new
     @testimonial = Testimonial.new
-    @name = current_user.display_name
-    @email = current_user.email
+    @testimonial.author_name = current_user.display_name
+    @testimonial.author_title = current_user.email
   end
 
   def edit
@@ -19,6 +19,7 @@ class TestimonialsController < ApplicationController
 
   def create
     @testimonial = current_user.testimonials.friendly.new(testimonial_params)
+    @testimonial.user = current_user
 
     if @testimonial.save
       redirect_to root_path, notice: 'Testimonial was successfully created.'
