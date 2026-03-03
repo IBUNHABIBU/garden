@@ -1,8 +1,7 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_booking, only: %i[ show edit update destroy ]
-  before_action :require_admin_access, only: %i[edit destroy]
-  before_action :ensure_admin, only: :update_status
+  before_action :require_admin_access, only: %i[edit destroy update_status]
 
   # GET /bookings or /bookings.json
   def index
@@ -80,9 +79,6 @@ class BookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def ensure_admin
-     redirect_to root_path, alert: "Not authorized." unless current_user.admin?
-    end
     def set_booking
       @booking = Booking.find(params.expect(:id))
     end

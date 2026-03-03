@@ -1,5 +1,7 @@
 class TestimonialsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin_access, only: %i[edit destroy]
 
   def index
     @testimonials = Testimonial.with_attached_avatar.all.order(created_at: :desc)
