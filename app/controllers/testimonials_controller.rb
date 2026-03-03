@@ -16,7 +16,7 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @testimonial = Testimonial.friendly.new(testimonial_params)
+    @testimonial = current_user.testimonials.friendly.new(testimonial_params)
 
     if @testimonial.save
       redirect_to root_path, notice: 'Testimonial was successfully created.'
