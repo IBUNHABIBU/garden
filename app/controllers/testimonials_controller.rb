@@ -1,5 +1,5 @@
 class TestimonialsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_access, only: %i[edit destroy]
 
