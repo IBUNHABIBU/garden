@@ -10,6 +10,8 @@ class TestimonialsController < ApplicationController
 
   def new
     @testimonial = Testimonial.new
+    @name = current_user.display_name
+    @email = current_user.email
   end
 
   def edit
