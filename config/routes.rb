@@ -34,6 +34,7 @@ get 'gallery', to: 'heros#gallery'
   resources :trekkings, path: 'treks' 
   resources :safaris, path: 'wildlife-safaris'
   resources :testimonials, path: 'reviews'
+  get "add_review", to: "reviews#new"
 
   resources :travel_tours do
     member do
