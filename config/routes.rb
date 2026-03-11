@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :gears
   resources :team_members
-  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+  get '/dashboard', to: 'dashboard#index', as: 'ibra'
   # Devise authentication
   devise_for :users, path: '', path_names: {
     sign_up: 'register',
