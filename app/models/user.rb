@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :role, presence: true, inclusion: { in: %w[super_admin admin user] }
   has_many :bookings, dependent: :destroy
   
-  scope :visible_users, -> { where(role: ['user', 'admin']) }
+  scope :visible_users, -> { where(role: ['user', 'admin', 'super_admin']) }
   has_many :testimonials, dependent: :nullify
   
   # Set default role
